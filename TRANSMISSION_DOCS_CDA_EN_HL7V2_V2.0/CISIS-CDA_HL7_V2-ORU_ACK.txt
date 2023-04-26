@@ -1,6 +1,6 @@
 Exemple de message HL7v2.5 ORU : Transmission initiale d'un compte-rendu de biologie médicale (au format CDA-R2 niveau 1 et CDA-R2 niveau 3) à diffuser au DMP, au professionnel de santé Adam Hoda par MSSanté  et au patient par MSSanté.
 
-MSH|^~\&|SIL-Y|labo|PFI-X|Nephro|202106060931||ORU^R01^ORU_R01|015|P|2.5|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
+MSH|^~\&|SIL-Y|labo|PFI-X|Organisation-X|202106060931||ORU^R01^ORU_R01|015|P|2.5|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
 PID|||276037510669380^^^ASIP-SANTE-INS-NIR&1.2.250.1.213.1.4.8&ISO^INS^^20101207||DE VINCI^DONATELLO^^^^^L||20100807|M|||Rue de la Résistance^^COSNE-COURS-SUR-LOIRE^^58200^FRA^H~^^^^^^BDL^^63220|||||||405660^^^AUT-AFFECTATION&120456789&M^AN^^20101205|||||||||||||N|VALI
 PV1|1|I|UFNEPH||||||||||||||||000897406^^^AUT-AFFECTATION&120456789&M^VN^^20101205
 ORC|SC|98765431^Nephro|1001-E1^labo|777^CHAbbeville|||||202106060710|R854^NURSE^JANET^^^^^^^D^^^EI|
@@ -26,5 +26,28 @@ OBX|13|ED|CORPSMAIL_PS^Corps du mail pour un PS||^TEXT^^Base64^Q2hlciBjb25mcsOoc
 
 Acquittement technique : 
 
-MSH|^~\&|PFI-X|Nephro|SIL-Y|labo|202106060931||ACK^R01^ACK|016|P|2.5|||||FRA|UNICODE UTF-8
+MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106060931||ACK^R01^ACK|016|P|2.5|||||FRA|UNICODE UTF-8
 MSA|AA|015
+
+
+Accusé de réception DMP :
+ 
+MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106060933||ZAM^Z01^ZAM_Z01|017|P|2.6|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
+EVN||20211005152908
+OBX|1|CWE|ACK_RECEPTION_DMP^Accusé de réception DMP|015|N||||||F|
+ERR|||207^Application internal error^HL70357|E|DMPClosed^DMP fermé
+
+
+Accusé de réception MSSanté : 
+
+MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106060934||ZAM^Z02^ZAM_Z01|018|P|2.6|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
+EVN||20211005152908
+OBX|1|CWE|ACK_RECEPTION_MSS^Accusé de réception MSSanté|015|Y||||||F|
+OBX|1|XTN|DESTINATAIRE_MSS^Destinataire MSSanté|801234567897|^^X.400^adam.hoda@medecin.mssante.fr||||||F|
+
+Accusé de lecture MSSanté : 
+
+MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106070933||ZAM^Z03^ZAM_Z01|019|P|2.6|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
+EVN||20211005152908
+OBX|1|CWE|ACK_LECTURE_MSS^Accusé de lecture|015|Y||||||F|
+OBX|1|XTN|LECTEUR_MSS^Lecteur du courriel MSSanté|801234567897|^^X.400^adam.hoda@medecin.mssante.fr||||||F|
