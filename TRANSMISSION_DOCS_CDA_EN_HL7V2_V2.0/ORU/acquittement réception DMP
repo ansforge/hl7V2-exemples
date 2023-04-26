@@ -1,0 +1,5 @@
+
+MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106060933||ZAM^Z01^ZAM_Z01|017|P|2.6|||||FRA|UNICODE UTF-8|||2.0^CISIS_CDA_HL7_V2
+EVN||20211005152908
+OBX|1|CWE|ACK_RECEPTION_DMP^Accusé de réception DMP|015|N||||||F|
+ERR|||207^Application internal error^HL70357|E|DMPClosed^DMP fermé
