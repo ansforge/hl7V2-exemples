@@ -1,6 +1,6 @@
 # hl7V2-exemples
 
-
+ 
 Le répertoire  contient des exemples de message HL7V2  pour  les volets du CI-SIS : 
 
 - Transmission d'un document CDA en HL7v2, SEGUR du numérique, vague 1 (version 1.2)
