@@ -3,7 +3,7 @@ Ce CR concerne le patient Domininique PatA. l'expéditeur est le Dr Thomas Eric.
 
 Transmission initiale MDM:
 - le document CR_Radio_CDAN1_v1.XML au format CDA N1,inclu dans le message,
-    - le message HL7 MDM message_MDM__LPS_MSS_CR_Radio_INIT_N1.er7 qui permet de transmettre le document du GESTIONNAIRE vers le CONSOMMATEUR,
-    - le message HL7 MDM message_MDM__LPS_MSS_CR_Radio_INIT_N1_Base64.er7, identique au précédent mais contenant le document en Base64,
-    - l'acquittement technique du message HL7.
+- le message HL7 MDM message_MDM__LPS_MSS_CR_Radio_INIT_N1.er7 qui permet de transmettre le document du GESTIONNAIRE vers le CONSOMMATEUR,
+- le message HL7 MDM message_MDM__LPS_MSS_CR_Radio_INIT_N1_Base64.er7, identique au précédent mais contenant le document en Base64,
+- l'acquittement technique du message HL7.
 
