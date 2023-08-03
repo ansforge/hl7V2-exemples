@@ -5,8 +5,7 @@ La demande de suppression du CR est réceptionnée par le FOURNISSEUR (la PFI) v
 Au niveau du message MDM, la demande de suppression est indiquée par la valeur de l'OBX-11 ("D")
 
 Suppression du CR d'imagerie:
-
-    la version du CR d'imagerie à supprimer, CR_Radio_CDAN1_v2.XML,
-    le message HL7 message_MDM__LPS_MSS_CR_Radio_DEL_N1.er7 portant le document à supprimer,
-    l'accusé de réception technique du message HL7, ack.er7.
+- la version du CR d'imagerie à supprimer, CR_Radio_CDAN1_v2.XML,
+- le message HL7 message_MDM__LPS_MSS_CR_Radio_DEL_N1.er7 portant le document à supprimer,
+- l'accusé de réception technique du message HL7, ack.er7.
 
