@@ -4,6 +4,7 @@ le remplacement/mise à jour des métadonnées du CR est publié vers le DMP et 
 Au niveau du message MDM, la demande de remplacement/maj métadonnées est indiquée par la valeur de l'OBX-11 ("D")
 
 Remplacement du CR d'imagerie:
+
     - le document CR_Radio_CDAN1_v2.XML au format CDA N1 (nouvelle version),
     - le message message_MDM_CR_Radio_RPLC_N1.er7 qui permet de transmettre la demande de remplacement du CR,
     - l'acquittement technique du message HL7.
