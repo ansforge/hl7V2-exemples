@@ -9,8 +9,8 @@ OBX|1|ED|18748-4^CR d'imagerie médicale^LN||^text^XML^Base64^RG9jdW1lbnQgbWVkY2
 PRT||UC||SB^^HL70912|801234564895^Eric^Thomas^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS|||^^^^^ASIP-SANTE-ST&1.2.250.1.71.4.2.2&ISO^FINEG^^^300017985
 PRT||UC||RCT^^HL70912|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^NET^X.400^adam.hoda@medecin.mssante.fr
 OBX|2|CWE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^HL70136||||||F|
-OBX|3|CWE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||Y^^HL70136||||||F|
-OBX|4|CWE|INVISIBLE_REP_LEGAUX^Non visible par les représentants Légaux du patient^MetaDMPMSS||Y^^HL70136||||||F|
+OBX|3|CWE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||N^^HL70136||||||F|
+OBX|4|CWE|INVISIBLE_REP_LEGAUX^Non visible par les représentants Légaux du patient^MetaDMPMSS||N^^HL70136||||||F|
 OBX|5|CWE|CONNEXION_SECRETE^Connexion Secrete^MetaDMPMSS||Y^^HL70136||||||F|
 OBX|6|CWE|MODIF_CONF_CODE^Modification Confidentiality Code^MetaDMPMSS||N^^HL70136||||||F|
 OBX|7|CWE|DESTDMP^Destinataire DMP^MetaDMPMSS||Y^^HL70136||||||F|
