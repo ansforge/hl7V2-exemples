@@ -20,4 +20,3 @@ OBX|10|CE|DESTMSSANTEPAT^Destinataire Patient^MetaDMPMSS||Y^^HL70136||||||F|
 OBX|11|CE|ACK_RECEPTION^Accusé de réception^MetaDMPMSS||N^^HL70136||||||F|
 OBX|12|CE|ACK_LECTURE_MSS^Accusé de lecture^MetaDMPMSS||N^^HL70136||||||F|
 OBX|13|ED|CORPSMAIL_PS^Corps du mail pour un PS^MetaDMPMSS||^TEXT^^Base64^Q2hlciBjb25mcsOocmUsIHZvdXMgdHJvdXZlcmV6IGNpLWpvaW50IGxlIENSIGTigJlpbWFnZXJpZSBkZSBNLkR1cG9ud||||||F|
-OBX|13|CE|ACK_LECTURE_MSS^Accusé de lecture^MetaDMPMSS||N^^HL70136||||||F|
