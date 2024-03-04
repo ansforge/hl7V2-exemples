@@ -1,4 +1,4 @@
-# hl7V2-exemples
+# hl7V2-exemples-Volets SEGUR- Transmission document(s) CDA en HL7v2 et Transmission au LPS d'un document CDA provenant d'un courriel
 
  
 Le répertoire  contient des exemples de message HL7V2  pour  les volets du CI-SIS : 
