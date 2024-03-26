@@ -24,7 +24,7 @@
       <telecom nullFlavor="UNK"></telecom>
       <patient>
         <name>
-          <family qualifier="BR">PatientA</family>
+          <family qualifier="BR">PAT-TROIS</family>
           <given qualifier="BR">DOMINIQUE</given>
           <given>DOMINIQUE</given>
         </name>
