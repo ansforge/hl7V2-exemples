@@ -77,8 +77,8 @@
       <!-- Identité du patient -->
       <patient classCode="PSN">
         <name>
-          <given qualifier="BR">RUTH</given>
-          <given>ISABELLE</given>
+          <given qualifier="BR">DOMINIQUE</given>
+          <given>DOMINIQUE</given>
           <family qualifier="BR">PAT-TROIS</family>
           <family qualifier="SP">PAT-TROIS</family>
           <family qualifier="CL">PAT-TROIS</family>
