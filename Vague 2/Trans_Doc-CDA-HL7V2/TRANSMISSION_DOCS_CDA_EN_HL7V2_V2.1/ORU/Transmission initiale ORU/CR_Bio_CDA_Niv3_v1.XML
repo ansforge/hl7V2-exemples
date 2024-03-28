@@ -36,8 +36,10 @@
   <templateId root="2.16.840.1.113883.2.8.2.1" />
   <!-- Déclarations de conformité CI-SIS -->
   <templateId root="1.2.250.1.213.1.1.1.1" />
-  <!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
-  <templateId root="1.3.6.1.4.1.19376.1.3.3" extension="2021.01" />
+  <!--Déclarations de conformité IHE PALM Clinical Laboratory Report-->
+  <templateId root="1.3.6.1.4.1.19376.1.3.3"/>
+  <!-- Déclarations de conformité au modèle CR-BIO_2023.01 du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.55" extension="2023.01"/>
   <!-- Identifiant du document -->
   <id root="1.2.250.1.213.1.1.9"/>
   <!-- Type de document -->
@@ -73,7 +75,7 @@
       <!-- Coordonnées télécom du patient -->
       <telecom value="tel:0144534551" use="H" />
       <telecom value="tel:0647151010" use="MC" />
-      <telecom value="mailto:ruth.decourcy@mail.fr" />
+      <telecom value="mailto:dominique.decoupat-troisrcy@mail.fr" />
       <!-- Identité du patient -->
       <patient classCode="PSN">
         <name>
@@ -332,6 +334,7 @@
   </authenticator>
   <!-- Médecin prescripteur des examens de biologie (ici, un gynécologue) -->
   <participant typeCode="REF">
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.6"/>
     <!-- Date de l'ordonnance -->
     <time xsi:type="IVL_TS">
       <high value="20201231" />
@@ -486,6 +489,7 @@
   <!-- Contexte de la prise en charge -->
   <componentOf>
     <encompassingEncounter>
+      <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
       <code code="AMB" displayName="ambulatoire" codeSystem="2.16.840.1.113883.5.4" />
       <effectiveTime>
         <low value="202101040735+0100" />
@@ -830,7 +834,7 @@
                           <id root="D5A9EF50-D05E-11DD-AD8B-0800200C9A66" extension="12345678A" />
                           <playingEntity>
                             <!-- Nature d'échantillon -->
-                            <code code="BLD" displayName="sang total" codeSystem="2.16.840.1.113883.5.129" />
+                            <code code="BLD" displayName="Sang" codeSystem="2.16.840.1.113883.18.311" />
                           </playingEntity>
                         </participantRole>
                       </participant>
@@ -2478,7 +2482,7 @@
                       <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
                       <!-- Nature de l'échantillon : valeur issue du JDV_HL7_SpecimenType-CISIS (2.16.840.1.113883.5.129) -->
                       <playingEntity>
-                        <code code="UR" codeSystem="2.16.840.1.113883.5.129" displayName="urine">
+                          <code code="UR" displayName="Urine" codeSystem="2.16.840.1.113883.18.311">
                           <originalText>
                             <reference value="#prelevement-nature-echantillon" />
                           </originalText>
@@ -2803,7 +2807,7 @@
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Nombre/Volume] Urine ; Numérique ; Comptage automate">
                         <originalText>
-                          <reference value="#isolat-2-denombrement" />
+                      <code code="UR" displayName="Urine" codeSystem="2.16.840.1.113883.18.311">    <reference value="#isolat-2-denombrement" />
                         </originalText>
                       </code>
                       <statusCode code="completed" />
