@@ -6,7 +6,7 @@
   <templateId assigningAuthorityName="IHE XDS-SD" root="1.3.6.1.4.1.19376.1.2.20"></templateId>
   <id root="1.2.250.1.71.4.2.2.120456789.A71024000081"></id>
   <code code="18748-4" codeSystem="2.16.840.1.113883.6.1" displayName="CR d'imagerie médicale"></code>
-  <title>Pelvis Masculin</title>
+  <title>Radio de hanche</title>
   <effectiveTime value="20050411103328"></effectiveTime>
   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"></confidentialityCode>
   <languageCode code="fr-FR"></languageCode>
@@ -24,11 +24,13 @@
       <telecom nullFlavor="UNK"></telecom>
       <patient>
         <name>
-          <family qualifier="BR">PAT-TROIS</family>
           <given qualifier="BR">DOMINIQUE</given>
           <given>DOMINIQUE</given>
+          <family qualifier="BR">PAT-TROIS</family>
+          <family qualifier="SP">PAT-TROIS</family>
+          <family qualifier="CL">PAT-TROIS</family>
         </name>
-        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"></administrativeGenderCode>
+        <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
         <birthTime value="19790328"></birthTime>
         <birthplace>
 					<place>
