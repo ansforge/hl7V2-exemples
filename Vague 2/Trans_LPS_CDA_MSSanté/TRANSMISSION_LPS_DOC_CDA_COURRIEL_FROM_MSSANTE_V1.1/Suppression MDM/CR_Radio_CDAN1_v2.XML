@@ -24,12 +24,12 @@
       <telecom nullFlavor="UNK"></telecom>
       <patient>
         <name>
-          <family qualifier="BR">PatientA</family>
+          <family qualifier="BR">PAT-TROIS</family>
           <given qualifier="BR">DOMINIQUE</given>
           <given>DOMINIQUE</given>
         </name>
         <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"></administrativeGenderCode>
-        <birthTime value="20050101"></birthTime>
+        <birthTime value="19790328"></birthTime>
         <birthplace>
 					<place>
 						<addr>
