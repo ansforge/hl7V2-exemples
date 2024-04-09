@@ -39,7 +39,7 @@
   <!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
   <templateId root="1.3.6.1.4.1.19376.1.3.3" extension="2021.01" />
   <!-- Identifiant du document -->
-  <id root="1.2.250.1.213.1.1.11"/>
+  <id root="1.2.250.1.213.1.1.12"/>
   <!-- Type de document -->
   <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -73,18 +73,18 @@
       <!-- Coordonnées télécom du patient -->
       <telecom value="tel:0144534551" use="H" />
       <telecom value="tel:0647151010" use="MC" />
-      <telecom value="mailto:ruth.decourcy@mail.fr" />
+      <telecom value="mailto:dominique.pat-trois@mail.fr" />
       <!-- Identité du patient -->
       <patient classCode="PSN">
         <name>
-          <given qualifier="BR">RUTH</given>
-          <given>ISABELLE</given>
-          <family qualifier="BR">NESSI</family>
-          <family qualifier="SP">DECOURCY</family>
-          <family qualifier="CL">DECOURCY</family>
+          <given qualifier="BR">DOMINIQUE</given>
+          <given>DOMINIQUE</given>
+          <family qualifier="BR">PAT-TROIS</family>
+          <family qualifier="SP">PAT-TROIS</family>
+          <family qualifier="CL">PAT-TROIS</family>
         </name>
         <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
-        <birthTime value="19770714" />
+        <birthTime value="19790328" />
         <!-- Représentant du patient -->
         <guardian>
           <addr use="H">
