@@ -33,7 +33,7 @@
 	<!-- Déclarations de conformité au modèle documents non structurés du CI-SIS -->
 	<templateId root="1.3.6.1.4.1.19376.1.2.20"/>
 	<!-- Identifiant du document -->
-	<id root="1.2.250.1.213.1.1.10"/>
+	<id root="1.2.250.1.213.1.1.9"/>
 	<!-- Type de document -->
 	<code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1"
 		codeSystemName="LOINC"/>
