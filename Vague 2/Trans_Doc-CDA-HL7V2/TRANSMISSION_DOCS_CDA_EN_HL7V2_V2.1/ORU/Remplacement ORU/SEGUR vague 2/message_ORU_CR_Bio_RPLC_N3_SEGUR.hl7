@@ -8,14 +8,13 @@ PRT||UC||SB^^participation|801234567866^DIAZ^Thierry^^^^^^ASIP-SANTE- PS&1.2.250
 PRT||UC||RCT^^participation|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^^X.400^adam.hoda@medecin.mssante.fr
 PRT||UC||RCT^^participation|279035121518989^PAT-TROIS^DOMINIQUE^^^^^^1.2.250.1.213.1.4.10^L^^^INS||||||||||^^X.400^279035121518989@patient.mssante.fr
 PRT||UC||REPLY^^participation|||||||||||^^X.400^adam.hoda@medecin.mssante.fr
-OBX|2|ED|11502-2^CR d'examens biologiques^LN||^TEXT^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||C|
-OBX|3|CE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
-OBX|4|CE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
-OBX|5|CE|INVISIBLE_REP_LEGAUX^Non visible par les représentants Légaux du patient^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
-OBX|6|CE|CONNEXION_SECRETE^Connexion Secrete^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
-OBX|7|CE|MODIF_CONF_CODE^Modification Confidentiality Code^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
-OBX|8|CE|DESTDMP^Destinataire DMP^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|
-OBX|9|CE|DESTMSSANTEPS^Destinataire (Professionnel de Santé, organisation ou BAL applicative)^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|
+OBX|2|CE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
+OBX|3|CE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
+OBX|4|CE|INVISIBLE_REP_LEGAUX^Non visible par les représentants Légaux du patient^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
+OBX|5|CE|CONNEXION_SECRETE^Connexion Secrete^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
+OBX|6|CE|MODIF_CONF_CODE^Modification Confidentiality Code^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
+OBX|7|CE|DESTDMP^Destinataire DMP^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|
+OBX|8|CE|DESTMSSANTEPS^Destinataire (Professionnel de Santé, organisation ou BAL applicative)^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|
 OBX|10|CE|DESTMSSANTEPAT^Destinataire Patient^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|
 OBX|11|CE|ACK_RECEPTION^Accusé de réception^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
 OBX|12|CE|ACK_LECTURE_MSS^Accusé de lecture^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
