@@ -6,7 +6,7 @@ OBR|1|98765431^Nephro|1001-E1^labo|11502-2^CR d'examens biologiques^LN||||||^BLE
 OBX|1|ED|11502-2^CR d'examens biologiques^LN||^TEXT^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||C|
 PRT||UC||SB^^participation|801234567866^DIAZ^Thierry^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS|||labo^^^^^ASIP-SANTE-ST&1.2.250.1.71.4.2.2&ISO^FINEG^^^1120459876
 PRT||UC||RCT^^participation|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^^X.400^adam.hoda@medecin.mssante.fr
-PRT||UC||RCT^^participation|279035121518989^PAT-TROIS^DOMINIQUE^^^^^^^L^^^INS||||||||||^^X.400^279035121518989@patient.mssante.fr
+PRT||UC||RCT^^participation|279035121518989^PAT-TROIS^DOMINIQUE^^^^^^1.2.250.1.213.1.4.10^L^^^INS||||||||||^^X.400^279035121518989@patient.mssante.fr
 PRT||UC||REPLY^^participation|||||||||||^^X.400^adam.hoda@medecin.mssante.fr
 OBX|2|ED|11502-2^CR d'examens biologiques^LN||^TEXT^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||C|
 OBX|3|CE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
