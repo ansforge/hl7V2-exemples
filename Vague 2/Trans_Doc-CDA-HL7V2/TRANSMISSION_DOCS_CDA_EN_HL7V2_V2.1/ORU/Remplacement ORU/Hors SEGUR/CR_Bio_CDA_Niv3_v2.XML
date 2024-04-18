@@ -58,7 +58,7 @@
   <recordTarget>
     <patientRole>
       <!-- INS-NIR de test : 1.2.250.1.213.1.4.10 -->
-      <id extension="279035121518989" root="1.2.250.1.213.1.4.8" />
+      <id extension="279035121518989" root="1.2.250.1.213.1.4.10" />
       <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
       <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
       <!-- Adresse du patient -->
