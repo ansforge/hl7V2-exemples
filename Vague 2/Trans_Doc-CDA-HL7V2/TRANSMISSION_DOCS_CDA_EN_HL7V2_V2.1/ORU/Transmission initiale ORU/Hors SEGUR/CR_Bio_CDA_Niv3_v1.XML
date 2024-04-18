@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/cda_asip.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../FeuilleDeStyle/CDA-FO.xsl"?>
 <?oxygen SCHSchema="../schematrons/profils/IHE.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/IHE_XDS-SD.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/CI-SIS_StructurationMinimale.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/CI-SIS_ModelesDeContenusCDA.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/CI-SIS_Modeles_ANS.sch"?>
 <?oxygen SCHSchema="../schematrons/profils/terminologies/schematron/terminologie.sch"?>
-<?oxygen SCHSchema="../schematrons/CI-SIS_CR-BIO_2021.01.sch"?>
+<?oxygen SCHSchema="../schematrons/CI-SIS_BIO-CR-BIO_2021.01.sch"?>
 <!-- 
 	**********************************************************************************************************
-    Document : Compte-rendu d’examens de biologie médicale (CR-BIO_2021.01)      
+    Document : Compte-rendu d’examens de biologie médicale (BIO-CR-BIO_2022.01)      
     Auteur : ANS
     **********************************************************************************************************
     format HL7 - CDA Release 2 niveau 3
     **********************************************************************************************************
-    Corrections :
-    13/07/2021 : unité "G/l" remplacée par "10*9/L" comme demandé dans JDV Circuit de la biologie pour le code="6690-2"
-    13/07/2021 : unité "T/l" remplacée par "10*12/L" comme demandé dans JDV Circuit de la biologie pour le code="789-8"    
-    13/07/2021 : unité "G/l" remplacée par "10*9/L" comme demandé dans JDV Circuit de la biologie pour le code="777-3"
-    13/07/2021 : code "44063" remplacé par code="20-8" comme demandé dans JDV Circuit de la biologie
-    13/07/2021 : code "43858" remplacé par code="28-1" comme demandé dans JDV Circuit de la biologie
-    13/07/2021 : unité "/mg/L" remplacée par "mg/L" dans les résultats Antibiogrammes
+    Historique :
+    13/10/2022 : version 2022.01
     **********************************************************************************************************
 -->
 <ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:lab="urn:oid:1.3.6.1.4.1.19376.1.3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -36,12 +31,12 @@
   <templateId root="2.16.840.1.113883.2.8.2.1" />
   <!-- Déclarations de conformité CI-SIS -->
   <templateId root="1.2.250.1.213.1.1.1.1" />
-  <!--Déclarations de conformité IHE PALM Clinical Laboratory Report-->
+  <!-- Déclarations de conformité à IHE PALM -->
   <templateId root="1.3.6.1.4.1.19376.1.3.3"/>
-  <!-- Déclarations de conformité au modèle CR-BIO_2023.01 du CI-SIS -->
-  <templateId root="1.2.250.1.213.1.1.1.55" extension="2023.01"/>
+  <!-- Déclarations de conformité au modèle CR-BIO du CI-SIS -->
+  <templateId root="1.2.250.1.213.1.1.1.55" />
   <!-- Identifiant du document -->
-  <id root="1.2.250.1.213.1.1.10"/>
+  <id root="1.3.6.1.4.1.19376.1.3.3.4"/>
   <!-- Type de document -->
   <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
@@ -53,14 +48,14 @@
   <!-- Langue du document -->
   <languageCode code="fr-FR" />
   <!-- identifiant commun à toutes les versions successives du comtpe rendu -->
-  <setId root="1.2.250.1.213.1.1.9"/>
+  <setId root="17940492-E5FF-41ED-B232-18E84FFE7A36"/>
   <!-- numéro de la version courante (entier positif), ici la première version -->
   <versionNumber value="1" />
   <!-- Patient -->
   <recordTarget>
     <patientRole>
       <!-- INS-NIR de test : 1.2.250.1.213.1.4.10 -->
-      <id extension="279035121518989" root="1.2.250.1.213.1.4.10" />
+      <id extension="279035121518989" root="1.2.250.1.213.1.4.10"/>
       <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
       <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
       <!-- Adresse du patient -->
@@ -75,7 +70,7 @@
       <!-- Coordonnées télécom du patient -->
       <telecom value="tel:0144534551" use="H" />
       <telecom value="tel:0647151010" use="MC" />
-      <telecom value="mailto:dominique.decoupat-troisrcy@mail.fr" />
+      <telecom value="mailto:279035121518989@patient.mssante.fr"/>
       <!-- Identité du patient -->
       <patient classCode="PSN">
         <name>
@@ -86,7 +81,7 @@
           <family qualifier="CL">PAT-TROIS</family>
         </name>
         <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
-        <birthTime value="19790328" />
+        <birthTime value="19790328"/>
         <!-- Représentant du patient -->
         <guardian>
           <addr use="H">
@@ -371,6 +366,7 @@
   </participant>
   <!-- Préleveur (ici, une infirmière) -->
   <participant typeCode="PRF">
+    <templateId root="1.3.6.1.4.1.19376.1.3.3.1.6"/>
     <functionCode code="PRELV" displayName="Préleveur" codeSystem="1.2.250.1.213.1.1.4.2.280" />
     <!-- Date et heure de prélèvement -->
     <time xsi:type="IVL_TS">
@@ -428,9 +424,12 @@
         <!-- Date de fin de traitement = date et heure de libération du compte rendu final -->
         <high value="20210104160500+0100" />
       </effectiveTime>
-      <!-- Laboratoire exécutant -->
+      <!-- Elément FR-Laboratoire-executant -->
       <performer typeCode="PRF">
+        <!-- Conformité Laboratory Performer (IHE PALM) -->
         <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+        <!-- Conformité FR-Laboratoire-executant (CI-SIS) -->
+        <templateId root="1.2.250.1.213.1.1.3.23" />
         <time>
           <high value="20210104152530+0100" />
         </time>
@@ -568,14 +567,15 @@
     -->
   <component>
     <structuredBody>
+      
       <!-- Section FR-Commentaire-non-code -->
       <component>
         <section>
-          <!-- Conformité IHE PCC -->
+          <!-- Conformité CDA Section (CDA) -->
           <templateId root="2.16.840.1.113883.10.12.201"/>
-          <!-- Conformité IHE PCC -->
+          <!-- Conformité Document Summary (IHE CARD) -->
           <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
-          <!-- Conformité CI-SIS -->
+          <!-- Conformité FR-Commentaire-non-code (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.73"/>
           <id root="E9BCD936-DDBA-41C9-AB5B-D9B190A8DE81" />
           <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
@@ -584,21 +584,22 @@
           <text>(texte libre)</text>
         </section>
       </component>
-      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Biochimie" -->
+      
+      <!-- Section FR-CR-BIO-Chapitre : chapitre "Biochimie" -->
       <component>
         <section>
-          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <!-- Conformité Laboratory Specialty Section (IHE PALM) -->
           <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
-          <!-- Conformité CI-SIS -->
+          <!-- Conformité FR-CR-BIO-Chapitre (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.70"/>
           <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>BIOCHIMIE</title>
-          <!-- Section FR-Examen-de-biologie de second niveau : "Electrophorèse des protéines" -->
+          <!-- Section FR-CR-BIO-Sous-Chapitre : "Electrophorèse des protéines" -->
           <component>
             <section>
-              <!-- Conformité IHE PCC Laboratory Report Item -->
+              <!-- Conformité Laboratory Report Item Section (IHE PALM) -->
               <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
-              <!-- Conformité CI-SIS -->
+              <!-- Conformité FR-CR-BIO-Sous-Chapitre (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.2.71"/>
               <code code="14340-4" displayName="Electrophorèse des protéines" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <title>Electrophorèse des protéines sériques :</title>
@@ -717,18 +718,21 @@
               </text>
               <!-- Entrée FR-Resultats-examens-de-biologie-medicale : "Electrophorèse des protéines" -->
               <entry typeCode="DRIV">
-                <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+                <!-- Conformité Laboratory Report Data Processing Entry (IHE PALM) -->
                 <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
-                <!-- Conformité CI-SIS -->
+                <!-- Conformité FR-Resultats-examens-de-biologie-medicale (CI-SIS) -->
                 <templateId root="1.2.250.1.213.1.1.3.21"/>
                 <act classCode="ACT" moodCode="EVN">
                   <code code="14340-4" displayName="Electrophorèse des protéines" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                     <translation code="LABO1_ELECTROP" displayName="Electrophorèse des protéines" codeSystem="1.2.3.4.833" codeSystemName="LABO1" />
                   </code>
-                  <statusCode code="completed" />
-                  <!-- Laboratoire exécutant -->
+                  <statusCode code="completed"/>
+                  <!-- Elément FR-Laboratoire-executant -->
                   <performer typeCode="PRF">
+                    <!-- Conformité Laboratory Performer (IHE PALM) -->
                     <templateId root="1.3.6.1.4.1.19376.1.3.3.1.7" />
+                    <!-- Conformité FR-Laboratoire-executant (CI-SIS) -->
+                    <templateId root="1.2.250.1.213.1.1.3.23" />
                     <time value="202101041050+0100" />
                     <assignedEntity>
                       <id root="1.2.250.1.71.4.2.1" extension="801234567833" />
@@ -747,14 +751,17 @@
                         <name>LABORATOIRE SOUS-TRAITANT</name>
                         <telecom nullFlavor="MSK" />
                         <addr nullFlavor="MSK" />
+                        <standardIndustryClassCode code="ETABLISSEMENT"
+                          displayName="Etablissement de santé" codeSystem="1.2.250.1.213.1.1.4.9"
+                          codeSystemName="practiceSettingCode"/>
                       </representedOrganization>
                     </assignedEntity>
                   </performer>
-                  <!-- Biologiste ayant validé les résultats -->
+                  <!-- Elément FR-Participant : Biologiste ayant validé les résultats -->
                   <participant typeCode="AUTHEN">
-                    <!-- Conformité IHE PCC -->
+                    <!-- Conformité participant (IHE PALM) -->
                     <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
-                    <!-- Conformité CI-SIS -->
+                    <!-- Conformité FR-Participant (CI-SIS) -->
                     <templateId root="1.2.250.1.213.1.1.3.109"/>
                     <time>
                       <high value="202101041120+0100" />
@@ -781,9 +788,9 @@
                   <!-- Entrée FR-Prelevement -->
                   <entryRelationship typeCode="COMP">
                     <procedure classCode="PROC" moodCode="EVN">
-                      <!-- Conformité IHE PCC Specimen Collection -->
+                      <!-- Conformité Specimen Collection (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Prelevement (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.77"/>
                       <code code="9050" codeSystem="1.2.250.1.213.2.7" displayName="Ponction veineuse" codeSystemName="NABM" />
                       <!-- Date et heure  prélèvement -->
@@ -834,7 +841,7 @@
                           <id root="D5A9EF50-D05E-11DD-AD8B-0800200C9A66" extension="12345678A" />
                           <playingEntity>
                             <!-- Nature d'échantillon -->
-                            <code code="BLD" displayName="Sang" codeSystem="2.16.840.1.113883.18.311" />
+                            <code code="BLD" displayName="sang total" codeSystem="2.16.840.1.113883.5.129" />
                           </playingEntity>
                         </participantRole>
                       </participant>
@@ -843,27 +850,23 @@
                   <!-- Entrée FR-Batterie-examens-de-biologie-medicale  -->
                   <entryRelationship typeCode="COMP">
                     <organizer classCode="BATTERY" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.78"/>
                       <statusCode code="completed" />
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2885-2" displayName="Protéines [Masse/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
                               <reference value="#Proteines" />
                             </originalText>
                           </code>
-                          <!--<code>
-														<originalText><reference value="#Proteines"/></originalText>
-														<translation code="XX" codeSystem="YY" displayName="ZZ" codeSystemName="TT"/>
-													</code>-->
                           <statusCode code="completed" />
                           <effectiveTime value="20210104131933+0100" />
                           <value xsi:type="PQ" value="75.0" unit="g/L" />
@@ -882,9 +885,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="13980-8" displayName="Albumine/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -900,9 +903,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2862-1" displayName="Albumine [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -927,9 +930,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="13978-2" displayName="Alpha-1 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -945,9 +948,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2865-4" displayName="Alpha-1 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -973,9 +976,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="13981-6" displayName="Alpha-2 globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -991,9 +994,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2868-8" displayName="Alpha-2 globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1018,9 +1021,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="13982-4" displayName="Bêta globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1036,9 +1039,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2871-2" displayName="Beta globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1063,9 +1066,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="13983-2" displayName="Gamma globulines/protéines totales [Fraction massique] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1081,9 +1084,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="2874-6" displayName="Gamma globulines [Masse/Volume] Sérum/Plasma ; Numérique ; Electrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1108,9 +1111,9 @@
                       <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="44429-9" displayName="Albumine/globulines [Masse ratio] Sérum/Plasma ; Numérique ; Électrophorèse" codeSystem="2.16.840.1.113883.6.1">
                             <originalText>
@@ -1126,11 +1129,11 @@
                       <!-- Entrée FR-Commentaire-ER (Commentaire sur l'électrophorèse) -->
                       <component>
                         <act classCode="ACT" moodCode="EVN">
-                          <!-- Conformité CCD -->
+                          <!-- Conformité Comment (CCD) -->
                           <templateId root="2.16.840.1.113883.10.20.1.40"/>
-                          <!-- Conformité IHE PCC -->
+                          <!-- Conformité Comment Entry (IHE PCC) -->
                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Commentaire-ER (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.32"/>
                           <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                           <text>
@@ -1142,9 +1145,9 @@
                       <!-- Entrée FR-Image-illustrative -->
                       <component>
                         <observationMedia classCode="OBS" moodCode="EVN" ID="ELECTROPHORESE">
-                          <!-- Conformité CCD -->
+                          <!-- Conformité ObservationMedia (CDA) -->
                           <templateId root="2.16.840.1.113883.10.12.304"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Image-illustrative (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.103"/>
                           <value mediaType="image/png" representation="B64">iVBORw0KGgoAAAANSUhEUgAAAlgAAAEsBAMAAAGaFOAzAAAAD1BMVEX///8AAH9/f3+/AAAAAL+m
 												cZSiAAAAAXRSTlMAQObYZgAACCxJREFUeJztnQmuozoURLG8ASP1QpBYwZfe/tf0gxl9AdtFDFxC
@@ -1193,12 +1196,13 @@
               </entry>
             </section>
           </component>
-          <!-- Section FR-Examen-de-biologie de second niveau : "Biochimie" -->
+          
+          <!-- Section FR-CR-BIO-Sous-Chapitre : "Biochimie" -->
           <component>
             <section>
-              <!-- Conformité IHE PCC Laboratory Report Item -->
+              <!-- Conformité Laboratory Report Item Section (IHE PALM) -->
               <templateId root="1.3.6.1.4.1.19376.1.3.3.2.2"/>
-              <!-- Conformité CI-SIS -->
+              <!-- Conformité FR-CR-BIO-Sous-Chapitre (CI-SIS) -->
               <templateId root="1.2.250.1.213.1.1.2.71"/>
               <code code="18719-5" displayName="Biochimie" codeSystem="2.16.840.1.113883.6.1" />
               <title>Autres examens de biochimie sanguine :</title>
@@ -1248,18 +1252,18 @@
               </text>
               <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE BIOCHIMIE -->
               <entry typeCode="DRIV">
-                <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+                <!-- Conformité Laboratory Report Data Processing Entry (IHE PALM) -->
                 <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
-                <!-- Conformité CI-SIS -->
+                <!-- Conformité FR-Resultats-examens-de-biologie-medicale (CI-SIS) -->
                 <templateId root="1.2.250.1.213.1.1.3.21"/>
                 <act classCode="ACT" moodCode="EVN">
                   <code code="18719-5" codeSystem="2.16.840.1.113883.6.1" displayName="Biochimie" />
                   <statusCode code="completed" />
-                  <!-- Biologiste ayant validé les résultats -->
+                  <!-- Elément FR-Participant : Biologiste ayant validé les résultats -->
                   <participant typeCode="AUTHEN">
-                    <!-- Conformité IHE PCC -->
+                    <!-- Conformité participant (IHE PALM) -->
                     <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
-                    <!-- Conformité CI-SIS -->
+                    <!-- Conformité FR-Participant (CI-SIS) -->
                     <templateId root="1.2.250.1.213.1.1.3.109"/>
                     <time>
                       <high value="202101041130+0100" />
@@ -1286,9 +1290,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <entryRelationship typeCode="COMP">
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="22664-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Urée [Moles/Volume] Sérum/Plasma ; Numérique">
                         <originalText>
@@ -1342,9 +1346,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <entryRelationship typeCode="COMP">
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="40193-5" displayName="Glucose à jeun [Moles/Volume] Sérum/Plasma ; Numérique" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                         <originalText>
@@ -1405,12 +1409,13 @@
           </component>
         </section>
       </component>
-      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Hématologie", sans section de second niveau -->
+      
+      <!-- Section FR-CR-BIO-Chapitre : chapitre "Hématologie" -->
       <component>
         <section>
-          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <!-- Conformité Laboratory Specialty Section (IHE PALM) -->
           <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
-          <!-- Conformité CI-SIS -->
+          <!-- Conformité FR-CR-BIO-Chapitre (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.70"/>
           <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>HEMATOLOGIE</title>
@@ -1587,18 +1592,18 @@
           </text>
           <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE L'HEMOGRAMME -->
           <entry typeCode="DRIV">
-            <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+            <!-- Conformité Laboratory Report Data Processing Entry (IHE PALM) -->
             <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
-            <!-- Conformité CI-SIS -->
+            <!-- Conformité FR-Resultats-examens-de-biologie-medicale (CI-SIS) -->
             <templateId root="1.2.250.1.213.1.1.3.21"/>
             <act classCode="ACT" moodCode="EVN">
               <code code="18723-7" displayName="Hématologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
               <statusCode code="completed" />
-              <!-- Biologiste ayant validé les résultats de cette entrée à 11h20 -->
+              <!-- Elément FR-Participant : Biologiste ayant validé les résultats -->
               <participant typeCode="AUTHEN">
-                <!-- Conformité IHE PCC -->
+                <!-- Conformité participant (IHE PALM) -->
                 <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
-                <!-- Conformité CI-SIS -->
+                <!-- Conformité FR-Participant (CI-SIS) -->
                 <templateId root="1.2.250.1.213.1.1.3.109"/>
                 <time>
                   <high value="202101041120+0100" />
@@ -1625,18 +1630,18 @@
               <!-- Entrée FR-Batterie-examens-de-biologie-medicale  -->
               <entryRelationship typeCode="COMP">
                 <organizer classCode="BATTERY" moodCode="EVN">
-                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.78"/>
                   <code code="58410-2" displayName="Hémogramme complet sur automate" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <statusCode code="completed" />
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : LEUCOCYTES -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="6690-2" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -1670,9 +1675,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="789-8" codeSystem="2.16.840.1.113883.6.1" displayName="Érythrocytes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -1706,9 +1711,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="20509-6" codeSystem="2.16.840.1.113883.6.1" displayName="Hémoglobine [Masse/Volume] Sang ; Numérique ; Résultat calculé">
                         <originalText>
@@ -1742,9 +1747,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="4544-3" codeSystem="2.16.840.1.113883.6.1" displayName="Hématocrite [Fraction volumique] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -1778,9 +1783,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="30428-7" codeSystem="2.16.840.1.113883.6.1" displayName="Volume globulaire moyen [Volume d'entité] Erythrocytes ; Numérique ; Comptage automate">
                         <originalText>
@@ -1814,9 +1819,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="30385-9" displayName="Indice de distribution érythrocytaire [Ratio] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1">
                         <originalText>
@@ -1850,9 +1855,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="28540-3" displayName="Concentration corpusculaire moyenne en hémoglobine [Masse/Volume] Érythrocytes ; Numérique" codeSystem="2.16.840.1.113883.6.1">
                         <originalText>
@@ -1886,9 +1891,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="28539-5" codeSystem="2.16.840.1.113883.6.1" displayName="Teneur corpusculaire moyenne en hémoglobine [Masse d'entité] Érythrocytes ; Numérique">
                         <originalText>
@@ -1922,9 +1927,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="777-3" codeSystem="2.16.840.1.113883.6.1" displayName="Plaquettes [Nombre/Volume] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -1958,9 +1963,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="32623-1" codeSystem="2.16.840.1.113883.6.1" displayName="Volume moyen plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -1994,9 +1999,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="32207-3" codeSystem="2.16.840.1.113883.6.1" displayName="Indice de distribution plaquettaire [Volume d'entité] Sang ; Numérique ; Comptage automate">
                         <originalText>
@@ -2020,9 +2025,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="26511-6" displayName="Polynucléaires neutrophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1">
                         <originalText>
@@ -2056,9 +2061,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="26450-7" codeSystem="2.16.840.1.113883.6.1" displayName="Polynucléaires éosinophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique">
                         <originalText>
@@ -2092,9 +2097,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="30180-4" displayName="Polynucléaires basophiles/100 leucocytes [Fraction de nombres] Sang ; Numérique" codeSystem="2.16.840.1.113883.6.1">
                         <originalText>
@@ -2128,9 +2133,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="26478-8" codeSystem="2.16.840.1.113883.6.1" displayName="Lymphocytes totaux/100 leucocytes [Fraction de nombres] Sang ; Numérique">
                         <originalText>
@@ -2164,9 +2169,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="26485-3" codeSystem="2.16.840.1.113883.6.1" displayName="Monocytes/100 leucocytes [Fraction de nombres] Sang ; Numérique">
                         <originalText>
@@ -2200,11 +2205,11 @@
                   <!-- Entrée FR-Commentaire -->
                   <component>
                     <act classCode="ACT" moodCode="EVN">
-                      <!-- Conformité CCD -->
+                      <!-- Conformité Comment (CCD) -->
                       <templateId root="2.16.840.1.113883.10.20.1.40"/>
-                      <!-- Conformité IHE PCC -->
+                      <!-- Conformité Comment Entry (IHE PCC) -->
                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Commentaire-ER (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.32"/>
                       <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Commentaire" />
                       <text>
@@ -2219,15 +2224,16 @@
           </entry>
         </section>
       </component>
-      <!-- Section FR-CR-de-biologie de premier niveau = chapitre "Microbiologie", sans section de second niveau -->
-     <component>
+      
+      <!-- Section FR-CR-BIO-Chapitre : chapitre "Microbiologie" -->
+      <component>
         <section>
-          <!-- Conformité IHE PCC Laboratory Specialty -->
+          <!-- Conformité Laboratory Specialty Section (IHE PALM) -->
           <templateId root="1.3.6.1.4.1.19376.1.3.3.2.1"/>
-          <!-- Conformité CI-SIS -->
+          <!-- Conformité FR-CR-BIO-Chapitre (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.70"/>
           <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
-          <title>EX MICROBIO URINES (ECBU)</title>
+          <title>Examen cytobactériologique des urines (ECBU)</title>
           <text>
             <!-- Prélèvement -->
             <table border="0">
@@ -2300,7 +2306,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <content ID="CBU-erythtocytes">Erythtocytes</content>
+                    <content ID="CBU-erythrocytes">Erythrocytes</content>
                   </td>
                   <td>200 /mL</td>
                 </tr>
@@ -2423,18 +2429,18 @@
           </text>
           <!-- Entrée FR-Resultats-examens-de-biologie-medicale : RESULTATS DE L'ECBU -->
           <entry typeCode="DRIV">
-            <!-- Conformité IHE PCC Laboratory Report Data Processing -->
+            <!-- Conformité Laboratory Report Data Processing Entry (IHE PALM) -->
             <templateId root="1.3.6.1.4.1.19376.1.3.1"/>
-            <!-- Conformité CI-SIS -->
+            <!-- Conformité FR-Resultats-examens-de-biologie-medicale (CI-SIS) -->
             <templateId root="1.2.250.1.213.1.1.3.21"/>
             <act classCode="ACT" moodCode="EVN">
-              <code code="18725-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Microbiologie" />
+              <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
               <statusCode code="completed" />
-              <!-- FR-Participant : Biologiste ayant validé les résultats -->
+              <!-- Elément FR-Participant : Biologiste ayant validé les résultats -->
               <participant typeCode="AUTHEN">
-                <!-- Conformité IHE PCC -->
+                <!-- Conformité participant (IHE PALM) -->
                 <templateId root="1.3.6.1.4.1.19376.1.3.3.1.5"/>
-                <!-- Conformité CI-SIS -->
+                <!-- Conformité FR-Participant (CI-SIS) -->
                 <templateId root="1.2.250.1.213.1.1.3.109"/>
                 <time>
                   <high value="202101041120+0100" />
@@ -2461,9 +2467,9 @@
               <!-- Entrée FR-Prelevement : Prélèvement d'urine -->
               <entryRelationship typeCode="COMP">
                 <procedure classCode="PROC" moodCode="EVN">
-                  <!-- Conformité IHE PCC Specimen Collection -->
+                  <!-- Conformité Specimen Collection (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.2"/>
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Prelevement (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.77"/>
                   <!-- Code affiné NABM de l'acte -->
                   <code code="5201" displayName="EX MICROBIO URINES (ECBU)" codeSystem="1.2.250.1.213.2.7" codeSystemName="NABM">
@@ -2482,7 +2488,7 @@
                       <id root="1.2.250.1.71.4.2.1" extension="801234567893" />
                       <!-- Nature de l'échantillon : valeur issue du JDV_HL7_SpecimenType-CISIS (2.16.840.1.113883.5.129) -->
                       <playingEntity>
-                          <code code="UR" displayName="Urine" codeSystem="2.16.840.1.113883.18.311">
+                        <code code="UR" displayName="urine" codeSystem="2.16.840.1.113883.5.129">
                           <originalText>
                             <reference value="#prelevement-nature-echantillon" />
                           </originalText>
@@ -2490,12 +2496,12 @@
                       </playingEntity>
                     </participantRole>
                   </participant>
-                  <!-- Date et heure de réception au laboratoire -->
+                  <!-- Entrée FR-Echantillon-date-reception : Date et heure de réception au laboratoire -->
                   <entryRelationship typeCode="COMP">
                     <act classCode="ACT" moodCode="EVN">
-                      <!-- Conformité IHE PCC Specimen Received -->
+                      <!-- Conformité Specimen Received (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.3" />
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Echantillon-date-reception (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.107" />
                       <code code="SPRECEIVE" displayName="Échantillon reçu" codeSystem="1.3.5.1.4.1.19376.1.5.3.2" codeSystemName="IHEActCode" />
                       <effectiveTime value="202101040752+0100" />
@@ -2506,9 +2512,9 @@
               <!-- Entrée FR-Batterie-examens-de-biologie-medicale : EXAMEN DIRECT (MACROSCOPIQUE) -->
               <entryRelationship typeCode="COMP">
                 <organizer classCode="BATTERY" moodCode="EVN">
-                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.78"/>
                   <code>
                     <originalText>
@@ -2520,9 +2526,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Couleur -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="5778-6" codeSystem="2.16.840.1.113883.6.1" displayName="Couleur [Type] Urine ; Résultat textuel">
                         <originalText>
@@ -2541,9 +2547,9 @@
                   <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Aspect -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="5767-9" codeSystem="2.16.840.1.113883.6.1" displayName="Aspect [Aspect] Urine ; Résultat textuel">
                         <originalText>
@@ -2564,9 +2570,9 @@
               <!-- Entrée FR-Batterie-examens-de-biologie-medicale : EXAMEN MICROSCOPIQUE -->
               <entryRelationship typeCode="COMP">
                 <organizer classCode="BATTERY" moodCode="EVN">
-                  <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                  <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.78"/>
                   <code>
                     <originalText>
@@ -2578,9 +2584,9 @@
                   <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Leucocytes -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="24122-4" codeSystem="2.16.840.1.113883.6.1" displayName="Leucocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
                         <originalText>
@@ -2595,9 +2601,9 @@
                   <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Érythrocytes -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="799-7" codeSystem="2.16.840.1.113883.6.1" displayName="Érythrocytes [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
                         <originalText>
@@ -2612,9 +2618,9 @@
                   <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Cellules épithéliales -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="24123-2" codeSystem="2.16.840.1.113883.6.1" displayName="Cellules épithéliales [Nombre/Volume] Urine ; Numérique ; Comptage manuel">
                         <originalText>
@@ -2633,9 +2639,9 @@
                   <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Coloration Gram -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="653-6" codeSystem="2.16.840.1.113883.6.1" displayName="Observation microscopique [Identification] Urine ; Résultat textuel ; Coloration Gram">
                         <originalText>
@@ -2656,9 +2662,9 @@
               <!-- Entrée FR-Isolat-microbiologique : ESCHERICHIA COLI -->
               <entryRelationship typeCode="COMP">
                 <organizer classCode="CLUSTER" moodCode="EVN">
-                  <!-- Conformité IHE PCC Laboratory Isolate Organizer -->
+                  <!-- Conformité Laboratory Isolate Organizer (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Isolat-microbiologique (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.79" />
                   <statusCode code="completed" />
                   <effectiveTime value="20210104155000+0100" />
@@ -2667,22 +2673,24 @@
                     <specimenRole classCode="SPEC">
                       <id root="6E281244-000B-4ACB-9ED8-0826543A9694" />
                       <specimenPlayingEntity classCode="MIC">
-                        <!-- code de l'agent infectieux (NCBI_Taxonomy) -->
-                        <code code="562" displayName="Escherichia coli" codeSystem="1.2.250.1.213.2.69.1" codeSystemName="NCBI_Taxonomy">
+                        <!-- code de l'agent infectieux (SNOMED-CT) -->
+                        <code code="112283007" displayName="Escherichia coli (organism)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
                           <!-- Précision sur l'agent infectieux -->
                           <originalText>
                             <reference value="#isolat-1" />
                           </originalText>
+                          <!-- code de l'agent infectieux (NCBI-Taxonomy) -->
+                          <translation code="562" displayName="Escherichia coli" codeSystem="2.16.840.1.113883.3.9471" codeSystemName="NCBI-Taxonomy"/>
                         </code>
                       </specimenPlayingEntity>
                     </specimenRole>
-                  </specimen>
-                  <!-- FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
+                  </specimen>                  
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Nombre/Volume] Urine ; Numérique ; Comptage automate">
                         <originalText>
@@ -2694,12 +2702,12 @@
                       <value xsi:type="PQ" value="100000" unit="/mL" />
                     </observation>
                   </component>
-                  <!-- Entrée FR-Batterie-examens-de-biologie pour les résultats de l’antibiogramme -->
+                  <!-- Entrée FR-Batterie-examens-de-biologie : Résultats de l’antibiogramme -->
                   <component>
                     <organizer classCode="BATTERY" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.78"/>
                       <code code="18769-0" displayName="Antibiogramme" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                         <originalText>
@@ -2707,12 +2715,12 @@
                         </originalText>
                       </code>
                       <statusCode code="completed" />
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Sensibilité] Isolat ; Alphanumérique ; CMI">
                             <originalText>
@@ -2724,16 +2732,16 @@
                           <value xsi:type="IVL_PQ">
                             <low value="0.512" unit="ug/mL" inclusive="true" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="R" displayName="Résistant" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Sensibilité] Isolat ; Alphanumérique ; CMI">
                             <originalText>
@@ -2745,16 +2753,16 @@
                           <value xsi:type="IVL_PQ">
                             <high value="0.128" unit="ug/mL" inclusive="false" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="I" displayName="Intermédiaire" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="18928-2" codeSystem="2.16.840.1.113883.6.1" displayName="Gentamicine [Sensibilité] Isolat ; Alphanumérique">
                             <originalText>
@@ -2766,7 +2774,7 @@
                           <value xsi:type="IVL_PQ">
                             <high value="0.032" unit="ug/mL" inclusive="false" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
@@ -2777,9 +2785,9 @@
               <!-- Entrée FR-Isolat-microbiologique : STREPTOCOCCUS D -->
               <entryRelationship typeCode="COMP">
                 <organizer classCode="CLUSTER" moodCode="EVN">
-                  <!-- Conformité IHE PCC Laboratory Isolate Organizer -->
+                  <!-- Conformité Laboratory Isolate Organizer (IHE PALM) -->
                   <templateId root="1.3.6.1.4.1.19376.1.3.1.5" />
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Isolat-microbiologique (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.79" />
                   <statusCode code="completed" />
                   <effectiveTime value="20210104155000+0100" />
@@ -2788,26 +2796,28 @@
                     <specimenRole classCode="SPEC">
                       <id extension="55584739" root="1.3.6.1.4.1.19376.1.3.4" />
                       <specimenPlayingEntity classCode="MIC">
-                        <!-- code de l'agent infectieux (NCBI_Taxonomy) -->
-                        <code code="1306" displayName="Streptococcus sp." codeSystem="1.2.250.1.213.2.69.1" codeSystemName="NCBI_Taxonomy">
+                        <!-- code de l'agent infectieux (SNOMED-CT) -->
+                        <code code="58800005" displayName="Genus Streptococcus (organism)" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
                           <!-- Précision sur l'agent infectieux -->
                           <originalText>
                             <reference value="#isolat-2" />
-                          </originalText>
+                          </originalText>                          
+                          <!-- code de l'agent infectieux (NCBI-Taxonomy) -->
+                          <translation code="1306" displayName="Streptococcus sp." codeSystem="2.16.840.1.113883.3.9471" codeSystemName="NCBI-Taxonomy"/>
                         </code>
                       </specimenPlayingEntity>
                     </specimenRole>
                   </specimen>
-                  <!-- FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
+                  <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Dénombrement -->
                   <component>
                     <observation classCode="OBS" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Observation -->
+                      <!-- Conformité Laboratory Observation (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.80"/>
                       <code code="51480-2" codeSystem="2.16.840.1.113883.6.1" displayName="Bactérie [Nombre/Volume] Urine ; Numérique ; Comptage automate">
                         <originalText>
-                      <code code="UR" displayName="Urine" codeSystem="2.16.840.1.113883.18.311">    <reference value="#isolat-2-denombrement" />
+                          <reference value="#isolat-2-denombrement" />
                         </originalText>
                       </code>
                       <statusCode code="completed" />
@@ -2815,12 +2825,12 @@
                       <value xsi:type="PQ" value="200000" unit="/mL" />
                     </observation>
                   </component>
-                  <!-- Entrée FR-Batterie-examens-de-biologie pour les résultats de l’antibiogramme -->
+                  <!-- Entrée FR-Batterie-examens-de-biologie : Résultats de l’antibiogramme -->
                   <component>
                     <organizer classCode="BATTERY" moodCode="EVN">
-                      <!-- Conformité IHE PCC Laboratory Battery Organizer -->
+                      <!-- Conformité Laboratory Battery Organizer (IHE PALM) -->
                       <templateId root="1.3.6.1.4.1.19376.1.3.1.4"/>
-                      <!-- Conformité CI-SIS -->
+                      <!-- Conformité FR-Batterie-examens-de-biologie-medicale (CI-SIS) -->
                       <templateId root="1.2.250.1.213.1.1.3.78"/>
                       <code code="18769-0" displayName="Antibiogramme" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC">
                         <originalText>
@@ -2828,12 +2838,12 @@
                         </originalText>
                       </code>
                       <statusCode code="completed" />
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Amoxicilline -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="20-8" codeSystem="2.16.840.1.113883.6.1" displayName="Amoxicilline+clavulanate [Sensibilité] Isolat ; Alphanumérique ; CMI">
                             <originalText>
@@ -2845,16 +2855,16 @@
                           <value xsi:type="IVL_PQ">
                             <high value="0.012" unit="ug/mL" inclusive="false" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Ampicilline -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="28-1" codeSystem="2.16.840.1.113883.6.1" displayName="Ampicilline [Sensibilité] Isolat ; Alphanumérique ; CMI">
                             <originalText>
@@ -2866,16 +2876,16 @@
                           <value xsi:type="IVL_PQ">
                             <high value="0.013" unit="ug/mL" inclusive="false" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
-                      <!-- entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
+                      <!-- Entrée FR-Resultat-examens-de-biologie-element-clinique-pertinent : Gentamicine -->
                       <component>
                         <observation classCode="OBS" moodCode="EVN">
-                          <!-- Conformité IHE PCC Laboratory Observation -->
+                          <!-- Conformité Laboratory Observation (IHE PALM) -->
                           <templateId root="1.3.6.1.4.1.19376.1.3.1.6"/>
-                          <!-- Conformité CI-SIS -->
+                          <!-- Conformité FR-Resultat-examens-de-biologie-element-clinique-pertinent (CI-SIS) -->
                           <templateId root="1.2.250.1.213.1.1.3.80"/>
                           <code code="18928-2" codeSystem="2.16.840.1.113883.6.1" displayName="Gentamicine [Sensibilité] Isolat ; Alphanumérique">
                             <originalText>
@@ -2887,7 +2897,7 @@
                           <value xsi:type="IVL_PQ">
                             <high value="0.014" unit="ug/mL" inclusive="false" />
                           </value>
-                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.5.83) -->
+                          <!-- Interprétation : valeur issue du JDV_HL7_ObservationInterpretation-CISIS (2.16.840.1.113883.1.11.78) -->
                           <interpretationCode code="S" displayName="Sensible" codeSystem="2.16.840.1.113883.5.83" />
                         </observation>
                       </component>
@@ -2898,11 +2908,11 @@
               <!-- COMMENTAIRE SUR L'ECBU -->
               <entryRelationship typeCode="SUBJ">
                 <act classCode="ACT" moodCode="EVN">
-                  <!-- Conformité CCD -->
+                  <!-- Conformité Comment (CCD) -->
                   <templateId root="2.16.840.1.113883.10.20.1.40"/>
-                  <!-- Conformité IHE PCC -->
+                  <!-- Conformité Comment Entry (IHE PCC) -->
                   <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.2"/>
-                  <!-- Conformité CI-SIS -->
+                  <!-- Conformité FR-Commentaire-ER (CI-SIS) -->
                   <templateId root="1.2.250.1.213.1.1.3.32"/>
                   <code code="48767-8" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
                   <text>
@@ -2915,22 +2925,24 @@
           </entry>
         </section>
       </component>
+      
       <!-- Section FR-Commentaire-non-code -->
       <component>
         <section>
-          <!-- Conformité IHE PCC -->
+          <!-- Conformité CDA Section (CDA) -->
           <templateId root="2.16.840.1.113883.10.12.201"/>
-          <!-- Conformité IHE PCC -->
+          <!-- Conformité Document Summary (IHE CARD) -->
           <templateId root="1.3.6.1.4.1.19376.1.4.1.2.16"/>
-          <!-- Conformité CI-SIS -->
+          <!-- Conformité FR-Commentaire-non-code (CI-SIS) -->
           <templateId root="1.2.250.1.213.1.1.2.73"/>
           <id root="BBA74E77-A43D-4003-A7D5-58885331B63D" />
           <code code="55112-7" displayName="Commentaire" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
           <title>Prestation de conseil</title>
           <!-- Bloc narratif de la section -->
-          <text>Détail de la prestation de conseil en texte libre.</text>
+          <text>(texte libre)</text>
         </section>
       </component>
+    
     </structuredBody>
   </component>
 </ClinicalDocument>
