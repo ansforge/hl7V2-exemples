@@ -14,11 +14,24 @@ Dans le cas d'un test d'integration avec l'envrionnement de DMP de test, vous de
 
 
 ### Modification du MSH
+Les segments suivants doivent être modifiés : 
+- MSH.3
+- MSH.4
+- MSH.5
+- MSH.6
+- MSH.7
+- MSH.10
 
 ### Modification du PRT
+Le segment suivant doit être modifié : 
+- PRT.8.1 : Sending Facility 
+- PRT.6.10 : Finness Geographique correspondant au certicat utilisé pour l'alimentation 
+
 
 ### Modification de l'OBX de type ED
 
+Le sgement suivant doit être modifié : 
+- OBX.5.5
 
 
 
