@@ -23,7 +23,7 @@ Les segments suivants doivent être modifiés :
 - MSH.10
 
 ### Modification du PRT
-Le segment suivant doit être modifié : 
+Le segments suivant doivent être modifiés : 
 - PRT.8.1 : Sending Facility 
 - PRT.6.10 : Finness Geographique correspondant au certicat utilisé pour l'alimentation 
 
