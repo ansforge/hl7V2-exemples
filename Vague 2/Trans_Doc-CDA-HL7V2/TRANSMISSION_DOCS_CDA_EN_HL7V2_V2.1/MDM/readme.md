@@ -62,7 +62,7 @@ Dans ce cas, il vous faudra modifier  identifiant du document remplacé dans le 
 | MSH  | MSH-7          |    Date/time du message | |
 | MSH  | MSH-10          |   Identifiant du message  | |
 | TXA  | TXA-12          |   Identifiant du document  | |
-| TXA  | TXA-13          |   Identifiant du document à remplacer | Dans d'un remplacement |
+| TXA  | TXA-13          |   Identifiant du document à remplacer | Dans le cas d'un remplacement |
 | PRT  | PRT-8.1         |   Nom de l’organisation   | |
 | PRT  | PRT-8.10        |  Identifiant de l’organisation destinataire du document   |  FINESS Geographique correspondant au certicat utilisé pour l'alimentation |
 | OBX  | OBX-5.4         |  Document CDA encodé en base 64    | |
