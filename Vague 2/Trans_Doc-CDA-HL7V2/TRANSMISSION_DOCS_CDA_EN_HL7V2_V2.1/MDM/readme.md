@@ -12,6 +12,11 @@ Vous trouverez sur cette page des exemples de messages MDM en HL7v2.6 dans le co
 ## Integration avec l'environnement de test du DMP
 Dans le cas d'un test d'integration avec l'envrionnement de DMP de test, vous devez modifier des valeurs de segments des messages HLV2
 
+| Aligné à gauche  | Centré          | Aligné à droite |
+| :--------------- |:---------------:| -----:|
+| Aligné à gauche  |   ce texte        |  Aligné à droite |
+| Aligné à gauche  | est             |   Aligné à droite |
+| Aligné à gauche  | centré          |    Aligné à droite |
 
 ### Modification du MSH
 Les segments suivants doivent être modifiés : 
