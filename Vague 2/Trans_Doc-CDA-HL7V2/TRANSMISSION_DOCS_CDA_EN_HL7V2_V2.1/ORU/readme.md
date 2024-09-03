@@ -1,20 +1,20 @@
-# Exemple de messsages ORU  "volet de "Transmission de document(s) CDA en HL7v2" 
+# Exemples de messsages ORU  "volet de "Transmission de document(s) CDA en HL7v2" 
 
 ## Description
 Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2, vague2".
 | Repertoire  | Description          |
 | :--------------- |:---------------|
-| **Transmission initiale ORU**  |   Cntient un exemple de message HL7v2 ORU qui contient un CR de biologie au format CDA N1 et le même contenu clinique au format CDA N3. Il s'agit de deux documents différents au même contenu clinique mais au format différent transmis par le Créateur au Gestionnaire pour la première fois.      | 
+| **Transmission initiale ORU**  |   Contient un exemple de message HL7v2 ORU qui contient un CR de biologie au format CDA N1 et le même contenu clinique au format CDA N3. Il s'agit de deux documents différents au même contenu clinique mais au format différent transmis par le Créateur au Gestionnaire pour la première fois.      | 
 |  **Remplacement ORU** |   Contient un exemple de message HL7v2 ORU qui contient une nouvelle version des 2 documents CDA N1 et CDA N2 précédemment transmis. le champ OBX-11 des segments OBX portant les nouvelles versions de document prend la valeur C indiquant ainsi une demande de remplacement des documents initiaux. le lien avec la version précédente du document est indiqué par l'élément relatedDocument au niveau du CDA.     | 
 |  **Suppression ORU** |  Contient un exemple de message HL7v2 ORU qui contient la dernière version des documents à supprimer. le champ OBX-11 des segments OBX portant les documents prend la valeur D pour indiquer une demande de suppression.  | 
 
  
 ## Integration avec l'environnement de test du DMP
-Dans le cas d'un test d'integration avec l'envrionnement de DMP de test, vous allez devoir effectuer des modifications sur les exemples mises à disposition.
+Dans le cas d'un test d'integration avec l'environnement de DMP de test, vous allez devoir effectuer des modifications sur les exemples mis à disposition.
 
 ### Patient
 Le patient utilisé dans les exemples est le patient "PAT-TROIS DOMINIQUE". 
-Ce patient est connu du DMP de test. Il n'y a donc pas de modification à faire dans le document CDA encodé en base64  et le segment PID des messages. 
+Ce patient est connu du DMP de test. Il n'y a donc pas de modification à faire dans le document CDA encodé en base64 et le segment PID des messages. 
 
 ### identifiant du document  CDA
 L'identifiant du document CDA  se retrouve dans l'élement **ID** du document CDA.
