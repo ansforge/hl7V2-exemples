@@ -1,5 +1,3 @@
-Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2, vague2"
-
 # Exemple de messsages ORU  "volet de "Transmission de document(s) CDA en HL7v2" 
 
 ## Description
@@ -47,11 +45,7 @@ Exemple pour un document CDA :
 ```
 #### Instruction
 
-Dans ce cas, il vous faudra modifier  identifiant du document remplacé dans le document CDA
-
-
-
-
+Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA.
 
 ### Synthése des modifications à effectuer
 | Segment  | Champs          | Description | Instruction |
