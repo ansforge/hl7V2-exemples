@@ -5,7 +5,7 @@ Ce répertoire contient des exemples HL7 V2 pour les volets ci-dessous.
 ## Transmission document(s) CDA en HL7v2  
 
 Le répertoire  contient des exemples de message HL7V2  pour  les volets du CI-SIS : 
-- [Transmission d'un document CDA en HL7v2, SEGUR du numérique, vague 1 (**version 1.2**)](Vague%201/TRANSMISSION_DOCS_CDA_EN_HL7V2_V1.2)
+- [Transmission d'un document CDA en HL7v2 ](Volets/TRANS_DOC_CDA_HL7V2)
 - [Transmission de document(s) CDA en HL7v2, SEGUR du numérique en santé, vague 2 (**version 2.1 post-PAT**)](Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1)
 
 ## Transmission au LPS d'un document CDA provenant d'un courriel MSSanté

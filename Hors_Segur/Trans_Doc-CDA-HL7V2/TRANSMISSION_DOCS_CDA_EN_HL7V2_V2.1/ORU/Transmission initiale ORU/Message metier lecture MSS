@@ -1,4 +1,0 @@
-MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106070933||ZAM^Z03^ZAM_Z01|019|P|2.6|||||FRA|8859/15|||2.1^CISIS_CDA_HL7_V2
-EVN||20211005152908
-OBX|1|CWE|ACK_LECTURE_MSS^Accusé de lecture^AckMetierZAM|015|Y^^expandedYes-NoIndicator||||||F|
-OBX|2|XTN|LECTEUR_MSS^Lecteur du courriel MSSanté^AckMetierZAM|801234567897|^^X.400^adam.hoda@medecin.mssante.fr||||||F|
