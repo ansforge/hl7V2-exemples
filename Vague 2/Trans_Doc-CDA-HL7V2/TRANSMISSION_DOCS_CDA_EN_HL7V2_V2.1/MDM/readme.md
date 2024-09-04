@@ -10,14 +10,14 @@ Vous trouverez sur cette page des exemples de messages MDM en HL7v2.6 dans le co
 
  
 ## Integration avec l'environnement de test du DMP
-Dans le cas d'un test d'integration avec l'envrionnement de DMP de test, vous allez devoir effectuer des modifications sur les exemples mises à disposition.
+Dans le cas d'un test d'integration avec l'environnement de DMP de test, vous allez devoir effectuer des modifications sur les exemples mis à disposition.
 
 ### Patient
 Le patient utilisé dans les exemples est le patient "PAT-TROIS DOMINIQUE". 
-Ce patient est connu du DMP de test. Il n'y a donc pas de modification à faire dans le document CDA encodé en base64  et le segment PID des messages. 
+Ce patient est connu du DMP de test. Il n'y a donc pas de modification à faire dans le document CDA encodé en base64 et le segment PID des messages.
 
 ### identifiant du document  CDA
-L'identifiant du document CDA  se retrouve dans le champs **TXA-12** et dans l'élement **ID** du document CDA.
+L'identifiant du document CDA se retrouve dans le champs **TXA-12** et dans l'élement **ID** du document CDA.
 
 Exemple pour un document CDA : 
 ```XML
@@ -26,7 +26,7 @@ Exemple pour un document CDA :
 #### Instruction
 
 1. Décoder le document CDA
-Pour cela il faut récuper le document CDA qui est dans le champ **OBX-5.4** 
+Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4** 
 2. Générer un nouvelle identifiant de document
 3. Remplacer l'identifiant du document CDA
 4. Re-encoder en base 64 le document CDA
@@ -34,7 +34,7 @@ Pour cela il faut récuper le document CDA qui est dans le champ **OBX-5.4**
 6. Modifier la valeur du champ **TXA-12** par le nouvel identifiant
 
 #### Cas du remplacement de document
-Dans le cas d'un remplacement de document, on retrouve l'identifiant du document à remplacer dans l'élement **relatedDocument" qui l'identifiant du document remplacé.
+Dans le cas d'un remplacement de document, on retrouve l'identifiant du document à remplacer dans l'élement **relatedDocument" qui correspond à l'identifiant du document remplacé.
 
 Exemple pour un document CDA : 
 ```XML
@@ -46,7 +46,7 @@ Exemple pour un document CDA :
 ```
 #### Instruction
 
-Dans ce cas, il vous faudra modifier  identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
+Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
 
 
 
