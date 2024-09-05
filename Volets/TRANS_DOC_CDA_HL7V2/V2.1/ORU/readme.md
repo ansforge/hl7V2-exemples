@@ -1,4 +1,5 @@
-Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2, vague2"
+Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2".
+Ces exemples sont hors périmètre du SEGUR.
 
 - le répertoire **Transmission initiale ORU**
   - contient un exemple de message HL7v2 ORU qui contient un CR de biologie au format CDA N1 et le même contenu clinique au format CDA N3. Il s'agit de deux documents différents au même contenu clinique mais au format différent transmis par le Créateur au Gestionnaire pour la première fois. Cette possibilité n'est pas applicable au SEGUR vague 2, elle a été maintenue pour des systèmes qui ne seraient pas référencés SEGUR vague 2 et qui souhaiteraient continuer à utiliser ce mécanisme. Pour les systèmes référencés vague 2, le CDA structuré de niveau 3 intègre le PDF correspondant dans une section dédiée du CDA Niv3. Un exemple est fourni ici avec le CR CR_BIO_2023.01_Electrophorese.xml.
