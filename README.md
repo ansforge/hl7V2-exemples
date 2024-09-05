@@ -22,7 +22,7 @@ A noter que dans les répertoires et sous-répertoires vous pourrez trouver souv
 </tr>
 <tr>
 <td align="left"><strong><a href="Vague 2/" target="_blank">Vague 2</a></strong></td>
-<td align="left">Contient des exemples de messages HL7V2    en lien avec la vague 2 du Ségur (réferencement et spécifications demandées)</td>
+<td align="left">Contient des exemples de messages HL7v2    en lien avec la vague 2 du Ségur (réferencement et spécifications demandées)</td>
 </tr>
 </tbody>
 </table>
