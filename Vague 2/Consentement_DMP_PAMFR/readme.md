@@ -1,4 +1,4 @@
-# Exemple de messsage PAM-FR précisant l'opposition ou la non opposition du patient à l'alimentation et à la consultation du patient à son DMP
+# Exemples de message PAM-FR précisant l'opposition ou la non opposition du patient à l'alimentation et à la consultation du patient à son DMP
 
 Ce répertoire contient des exemples de messages HL7v2 conformes à l'extension française PAM-Fr, précisant l'opposition ou la non opposition du patient à l'alimentation et à la consultation du patient à son DMP : 
 - Consentement_Negatif
