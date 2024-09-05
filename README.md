@@ -6,7 +6,7 @@ Ce répertoire contient des exemples HL7 v2.
 
 Ci-dessous vous trouverez une description de l'organisation de ce répertoire et de son arborescence.
 
-A noter que dans chaque répertoire vous trouverez un README pour expliquer son contenu et/ou vous apporter des informations complémentaires sur les exemples.
+A noter que dans les répertoires et sous-répertoires vous pourrez trouver souvent un README, afin d'expliquer son contenu et/ou vous apporter des informations complémentaires sur les exemples.
 
 <table>
 <thead>
