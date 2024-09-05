@@ -42,7 +42,7 @@ Exemple pour un document CDA :
 <parentDocument>
 <id root="1.2.250.2345.3245.13.58132"/>
 </parentDocument>
-</relatedDocument
+</relatedDocument>
 ```
 #### Instruction
 
