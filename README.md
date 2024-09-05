@@ -63,7 +63,7 @@ A noter que dans chaque répertoire vous trouverez un README pour expliquer son 
 <td align="left">Contient des exemples de messages HL7v2 spécifiés dans le cadre du volet de "Transmission de document(s) CDA en HL7v2, SEGUR du numérique - Vague 2"</td>
 </tr>
 <tr>
-<td align="left"><strong><a href="Vague 2/TRANSMISSION_LPS_DOC_CDA_COURRIEL_FROM_MSSANTE_V1.1" target="_blank">TRANSMISSION_LPS_DOC_CDA_COURRIEL_FROM_MSSANTE_V1.1</a></strong></td>
+<td align="left"><strong><a href="Vague 2/Trans_LPS_CDA_MSSanté/TRANSMISSION_LPS_DOC_CDA_COURRIEL_FROM_MSSANTE_V1.1" target="_blank">Trans_LPS_CDA_MSSanté/TRANSMISSION_LPS_DOC_CDA_COURRIEL_FROM_MSSANTE_V1.1</a></strong></td>
 <td align="left">Contient des exemples de messages HL7v2.6 MDM spécifiés dans le cadre du volet de "Transmission au LPS d'un document CDA provenant d'un courriel MSSanté, SEGUR du numérique - Vague 2"</td>
 </tr>
 <tr>
