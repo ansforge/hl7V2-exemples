@@ -1,8 +1,8 @@
-# Exemples de messages ORU en HL7v2.5
+# Exemples de messages ORU en HL7 v2.5
 
 ## Description
 
-Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2".
+Vous trouverez sur cette page des exemples de messages ORU en HL7 v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2".
 
 **NB : Ces exemples sont hors périmètre du SEGUR.**
 
