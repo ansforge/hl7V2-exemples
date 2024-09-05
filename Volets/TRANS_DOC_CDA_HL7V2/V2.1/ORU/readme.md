@@ -1,4 +1,4 @@
-# Exemples de messages ORU HL7 en HL7v2.5
+# Exemples de messages ORU en HL7v2.5
 
 ## Description
 
