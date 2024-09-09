@@ -1,4 +1,4 @@
-# Exemples de messsages ORU  "volet de "Transmission de document(s) CDA en HL7v2" 
+# Exemples de messages ORU  "volet de "Transmission de document(s) CDA en HL7v2" 
 
 ## Description
 Vous trouverez sur cette page des exemples de messages ORU en HL7v2.5 dans le contexte du volet "Transmission de document(s) CDA en HL7v2, vague2".
