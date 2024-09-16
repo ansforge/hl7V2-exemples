@@ -5,7 +5,7 @@ PV1|1|I|UFNEPH||||||||||||||||000897406^^^AUT-AFFECTATION&120456789&M^VN^^202104
 TXA|1|18748-4|TEXT|202212160932||||||||1.2.250.1.71.4.2.2.120456789.A71024000081^Organisation-Y|||||LA|||||801234564895
 OBX|1|ED|18748-4^CR d'imagerie médicale^LN||^text^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||F|
 PRT||UC||SB^^HL70912|801234564895^Eric^Thomas^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS|||^^^^^ASIP-SANTE-ST&1.2.250.1.71.4.2.2&ISO^FINEG^^^300017985
-PRT||UC||RCT^^HL70912|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^NET^X.400^adam.hoda@medecin.mssante.fr
+PRT||UC||RCT^^HL70912|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^NET^X.400^adam.hoda@test-ci-sis.mssante.fr
 OBX|2|CWE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^HL70136||||||F|
 OBX|3|CWE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||Y^^HL70136||||||F|
 OBX|4|CWE|INVISIBLE_REP_LEGAUX^Non visible par les représentants Légaux du patient^MetaDMPMSS||Y^^HL70136||||||F|

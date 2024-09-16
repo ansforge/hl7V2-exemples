@@ -5,9 +5,9 @@ ORC|SC|98765431^Nephro|1001-E1^labo|777^CHAbbeville|||||202106060710|R854^NURSE^
 OBR|1|98765431^Nephro|1001-E1^labo|11502-2^CR d'examens biologiques^LN||||||^BLEDER^Roberta^^^^^^^D||||||^BLUE^Eva^^^DR^^^^D|||||||||F|||||||L07&LABBIO&JULIE
 OBX|1|ED|11502-2^CR d'examens biologiques^LN||^TEXT^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||F|
 PRT||UC||SB^^HL70912|801234567866^DIAZ^Thierry^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS|||^^^^^ASIP-SANTE-ST&1.2.250.1.71.4.2.2&ISO^FINEG^^^1120459876
-PRT||UC||RCT^^HL70912|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^^X.400^adam.hoda@medecin.mssante.fr
+PRT||UC||RCT^^HL70912|801234567897^Hoda^Adam^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^^X.400^adam.hoda@test-ci-sis.mssante.fr
 PRT||UC||RCT^^HL70912|277076322082910^NESSI^RUTH^^^^^^^L^^^INS||||||||||^^X.400^2770763220829106@patient.mssante.fr
-PRT||UC||REPLY^^HL70912|||||||||||^^X.400^adam.hoda@medecin.mssante.fr
+PRT||UC||REPLY^^HL70912|||||||||||^^X.400^adam.hoda@test-ci-sis.mssante.fr
 OBX|2|ED|11502-2^CR d'examens biologiques^LN||^TEXT^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||F|
 OBX|3|CE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^HL70136||||||F|
 OBX|4|CE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||N^^HL70136||||||F|
