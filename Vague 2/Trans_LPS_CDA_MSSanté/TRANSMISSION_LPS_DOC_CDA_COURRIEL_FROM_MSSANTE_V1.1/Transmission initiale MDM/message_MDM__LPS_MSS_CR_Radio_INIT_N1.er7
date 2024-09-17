@@ -8,7 +8,7 @@ TXA|1|18748-4|TEXT|202212160932||||||||1.2.250.1.71.4.2.2.120456789.71024000081^
 OBX|1|ED|18748-4^CR d'imagerie médicale^LN||^text^XML^Base64^RG9jdW1lbnQgbWVkY2lhbCBhdSBmb3JtYXQgQ0RBIG5pdmVhdSAx||||||F|
 PRT||UC||SB^^participation|801234564895^Eric^Thomas^^^^^^ASIP-SANTE- PS&1.2.250.1.71.4.2.1&ISO^D^^^RPPS||||||||||^^X.400^thomas.eric@medecin.mssante.fr
 PRT||UC||RCT^^participation||||Service d'urologie^^^^^120456789^UF^^^3435|||||||^^X.400^dpi@hopitalA.mssante.fr
-PRT||UC||REPLY^^participation|||||||||||^^X.400^adam.hoda@medecin.mssante.fr
+PRT||UC||REPLY^^participation|||||||||||^^X.400^adam.hoda@test-ci-sis.mssante.fr
 OBX|2|ED|1^XDM/1.0/DDM+CR d’examens de radiologie PAT-TROIS DOMINIQUE 07/08/2010||^text^^Base64^Q29ycHMgZHUgY291cnJpZWw=||||||F|
 OBX|3|CWE|MASQUE_PS^Masqué aux professionnels de Santé^MetaDMPMSS||N^^expandedYes-NoIndicator||||||F|
 OBX|4|CWE|INVISIBLE_PATIENT^Document Non Visible par le patient^MetaDMPMSS||Y^^expandedYes-NoIndicator||||||F|

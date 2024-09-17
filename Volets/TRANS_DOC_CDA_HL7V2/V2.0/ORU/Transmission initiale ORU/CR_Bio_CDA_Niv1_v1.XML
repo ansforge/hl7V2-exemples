@@ -206,7 +206,7 @@
 	<informationRecipient>
   		<intendedRecipient>
 			<id extension="801234567897" root="1.2.250.1.71.4.2.1"/>
-			<telecom value="mailto:adam.hoda@medecin.mssante.fr" use="DIR"/>
+			<telecom value="mailto:adam.hoda@test-ci-sis.mssante.fr" use="DIR"/>
 			<informationRecipient>
 			<name>
 				<prefix>M</prefix>

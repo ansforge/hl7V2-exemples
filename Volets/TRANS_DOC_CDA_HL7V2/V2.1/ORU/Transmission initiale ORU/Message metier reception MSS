@@ -1,4 +1,4 @@
 MSH|^~\&|PFI-X|Organisation-X|SIL-Y|labo|202106060934||ZAM^Z02^ZAM_Z01|018|P|2.6|||||FRA|8859/15|||2.1^CISIS_CDA_HL7_V2
 EVN||20211005152908
 OBX|1|CWE|ACK_RECEPTION_MSS^Accusé de réception MSSanté^AckMetierZAM|015|Y^^expandedYes-NoIndicator||||||F|
-OBX|2|XTN|DESTINATAIRE_MSS^Destinataire MSSanté^AckMetierZAM|801234567897|^^X.400^adam.hoda@medecin.mssante.fr||||||F|
+OBX|2|XTN|DESTINATAIRE_MSS^Destinataire MSSanté^AckMetierZAM|801234567897|^^X.400^adam.hoda@test-ci-sis.mssante.fr||||||F|
