@@ -54,7 +54,7 @@
         </name>
       </assignedPerson>
       <representedOrganization>
-        <id extension="120456789" root="1.2.250.1.71.4.2.2"></id>
+        <id extension="1120456789" root="1.2.250.1.71.4.2.2"></id>
         <name>Organisation-Y</name>
         <telecom nullFlavor="UNK"></telecom>
         <addr nullFlavor="UNK"></addr>
@@ -64,7 +64,7 @@
   <custodian>
     <assignedCustodian>
       <representedCustodianOrganization>
-        <id extension="120456789" root="1.2.250.1.71.4.2.2"></id>
+        <id extension="1120456789" root="1.2.250.1.71.4.2.2"></id>
         <name>Organisation-Y</name>
         <telecom nullFlavor="UNK"></telecom>
         <addr nullFlavor="UNK"></addr>
