@@ -25,7 +25,7 @@ Exemple pour un document CDA :
 ```
 
 ### structure de l'auteur du document  CDA
-L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.7** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
+L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.10** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
 
 Exemple pour un document CDA : 
 ```XML
