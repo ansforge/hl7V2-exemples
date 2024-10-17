@@ -90,7 +90,7 @@ Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le
 | TXA  | TXA-13          |   Identifiant du document à remplacer | Dans le cas d'un remplacement |
 | PRT  | PRT-8.7         |   Type d’identifiant de l’organisation   | pour PRT-4 = ‘SB^Send by^participation’ |
 | PRT  | PRT-8.10        |  Identifiant de l’organisation à l’origine de la demande de traitement sur le(s) document(s)   |  pour PRT-4 = ‘SB^Send by^participation’ |
-| PRT  | PRT-15.4        |  adresse email de destination   |  pour PRT-4 = ‘RCT^participation’ |
+| PRT  | PRT-15.4        |  adresse email de destination   |  pour PRT-4 = ‘RCT^Result Copies To^participation’ |
 | OBX  | OBX-5.4         |  Document CDA encodé en base 64    | modifié Id du document principal et/ou du document remplacé et le champ author/assignedAuthor/representedOrganization/id |
 
 
