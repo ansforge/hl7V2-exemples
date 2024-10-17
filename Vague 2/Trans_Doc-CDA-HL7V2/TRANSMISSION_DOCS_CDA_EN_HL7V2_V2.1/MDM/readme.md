@@ -76,7 +76,7 @@ Exemple pour un document CDA :
 
 Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
 
-### Synthése des modifications à effectuer
+### Synthèse des modifications à effectuer dans le message HL7v2
 
 | Segment  | Champs          | Description | Instruction |
 | :--------------- |:---------------| :-----:| :-----|
