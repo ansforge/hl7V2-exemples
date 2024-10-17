@@ -23,15 +23,43 @@ Exemple pour un document CDA :
 ```XML
 <id root="1.2.250.2345.3245.13.58132">
 ```
+### structure de l'auteur du document  CDA
+L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.7** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
+
+Exemple pour un document CDA : 
+```XML
+<author>
+<time value="20210409094914.827+0100"></time>
+<assignedAuthor>
+<id extension="801234564895" root="1.2.250.1.71.4.2.1"></id>
+<addr nullFlavor="UNK"></addr>
+<telecom nullFlavor="UNK"></telecom>
+<assignedPerson>
+<name>
+<family qualifier="SP">Eric</family>
+<given>Thomas</given>
+</name>
+</assignedPerson>
+<representedOrganization>
+<id extension="1120456789" root="1.2.250.1.71.4.2.2"></id>
+<name>Organisation-Y</name>
+<telecom nullFlavor="UNK"></telecom>
+<addr nullFlavor="UNK"></addr>
+</representedOrganization>
+</assignedAuthor>
+</author>
+```
 #### Instruction
 
 1. Décoder le document CDA
 Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4** 
 2. Générer un nouvelle identifiant de document
 3. Remplacer l'identifiant du document CDA
-4. Re-encoder en base 64 le document CDA
-5. Remplacer le champ **OBX-5.4** par le nouveau document CDA
-6. Modifier la valeur du champ **TXA-12** par le nouvel identifiant
+4. Remplacer l'identifiant de la structure de l'auteur du document CDA
+5. Re-encoder en base 64 le document CDA
+6. Remplacer le champ **OBX-5.4** par le nouveau document CDA
+7. Modifier la valeur du champ **TXA-12** par le nouvel identifiant
+8. Modifier la valeur du champ **PRT-8.10** par le nouvel identifiant de la structure de l'auteur
 
 #### Cas du remplacement de document
 Dans le cas d'un remplacement de document, on retrouve l'identifiant du document à remplacer dans l'élement **relatedDocument" qui correspond à l'identifiant du document remplacé.
@@ -48,11 +76,8 @@ Exemple pour un document CDA :
 
 Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
 
+### Synthèse des modifications à effectuer dans le message HL7v2
 
-
-
-
-### Synthése des modifications à effectuer
 | Segment  | Champs          | Description | Instruction |
 | :--------------- |:---------------| :-----:| :-----|
 | MSH  |   MSH-3        |  Application émettrice  | |
@@ -63,9 +88,10 @@ Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le
 | MSH  | MSH-10          |   Identifiant du message  | |
 | TXA  | TXA-12          |   Identifiant du document  | |
 | TXA  | TXA-13          |   Identifiant du document à remplacer | Dans le cas d'un remplacement |
-| PRT  | PRT-8.1         |   Nom de l’organisation   | |
-| PRT  | PRT-8.10        |  Identifiant de l’organisation destinataire du document   |  FINESS Geographique correspondant au certicat utilisé pour l'alimentation |
-| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | |
+| PRT  | PRT-8.7         |   Type d’identifiant de l’organisation   | pour PRT-4 = ‘SB^Send by^participation’ |
+| PRT  | PRT-8.10        |  Identifiant de l’organisation à l’origine de la demande de traitement sur le(s) document(s)   |  pour PRT-4 = ‘SB^Send by^participation’ |
+| PRT  | PRT-15.4        |  adresse email de destination   |  pour PRT-4 = ‘RCT^Result Copies To^participation’ |
+| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | modifié Id du document principal et/ou du document remplacé et le champ author/assignedAuthor/representedOrganization/id |
 
 
 
