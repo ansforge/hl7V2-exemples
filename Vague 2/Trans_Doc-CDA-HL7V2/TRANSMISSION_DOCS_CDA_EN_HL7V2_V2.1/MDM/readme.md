@@ -23,8 +23,8 @@ Exemple pour un document CDA :
 ```XML
 <id root="1.2.250.2345.3245.13.58132">
 ```
-### structure de l'auteur du document  CDA
-L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.7** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
+### structure de l'auteur du document CDA
+L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.10** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
 
 Exemple pour un document CDA : 
 ```XML
