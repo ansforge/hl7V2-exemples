@@ -23,15 +23,43 @@ Exemple pour un document CDA :
 ```XML
 <id root="1.2.250.2345.3245.13.58132">
 ```
+### structure de l'auteur du document  CDA
+L'identifiant de structure de l'auteur du document CDA se retrouve dans le champs **PRT-8.7** et dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
+
+Exemple pour un document CDA : 
+```XML
+<author>
+<time value="20210409094914.827+0100"></time>
+<assignedAuthor>
+<id extension="801234564895" root="1.2.250.1.71.4.2.1"></id>
+<addr nullFlavor="UNK"></addr>
+<telecom nullFlavor="UNK"></telecom>
+<assignedPerson>
+<name>
+<family qualifier="SP">Eric</family>
+<given>Thomas</given>
+</name>
+</assignedPerson>
+<representedOrganization>
+<id extension="1120456789" root="1.2.250.1.71.4.2.2"></id>
+<name>Organisation-Y</name>
+<telecom nullFlavor="UNK"></telecom>
+<addr nullFlavor="UNK"></addr>
+</representedOrganization>
+</assignedAuthor>
+</author>
+```
 #### Instruction
 
 1. Décoder le document CDA
 Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4** 
 2. Générer un nouvelle identifiant de document
 3. Remplacer l'identifiant du document CDA
-4. Re-encoder en base 64 le document CDA
-5. Remplacer le champ **OBX-5.4** par le nouveau document CDA
-6. Modifier la valeur du champ **TXA-12** par le nouvel identifiant
+4. Remplacer l'identifiant de la structure de l'auteur du document CDA
+5. Re-encoder en base 64 le document CDA
+6. Remplacer le champ **OBX-5.4** par le nouveau document CDA
+7. Modifier la valeur du champ **TXA-12** par le nouvel identifiant
+8. Modifier la valeur du champ **PRT-8.10** par le nouvel identifiant de la structure de l'auteur
 
 #### Cas du remplacement de document
 Dans le cas d'un remplacement de document, on retrouve l'identifiant du document à remplacer dans l'élement **relatedDocument" qui correspond à l'identifiant du document remplacé.
@@ -48,49 +76,6 @@ Exemple pour un document CDA :
 
 Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
 
-### éléments à modifier pour contruire le VIHF
-
-#### message HL7v2
-Afin de construire le VIHF et pouvoir s'autentifier pour intégrer le document dans le DMP il faut modifier dans le message HL7v2 le segment PRT ayant pour valeur PRT-4 = ‘SB^Send by^participation’:
-
-* PRT-5.1: Identifiant du professionnel qui fait la demande de traitement sur le(s) document(s)
-* PRT-5.2: Nom d’exercice du professionnel expéditeur
-* PRT-5.3: Prénom d’exercice du professionnel expéditeur
-* PRT-8.1: Nom de l’organisation
-* PRT-8.7: Type d’identifiant de l’organisation (selon le type de connexion)
-* PRT-8.10:  Identifiant de l’organisation destinataire du document
-
-Ces éléments doivent correspondre au certificat de l'éditeur pour la structure identifiée.
-
-#### metadata XDS
-
-En cohérence avec les éléments à modifier dans le message HL7v2, il vous faudra modifier :
-
-* authorInstitution: structure émettrice du lot de soumission ou de l'auteur pour une fiche
-* authorPerson: personne physique (auteur) ou le système émetteur du lot de soumission
-
-Mais également :
-
-* authorRole: le rôle joué par l’auteur vis-à-vis du patient lors de la constitution du lot de soumission ou lors de la création du document (fiche)
-* authorSpecialty: profession éventuellement associée au savoir-faire de l’auteur du lot de soumission pour un auteur professionnel caractérisé par sa profession ou la profession associée au genre d’activité de l’auteur du lot de soumission ou de la fiche pour un auteur professionnel caractérisé par son rôle
-
-#### CDA
-
-Pour une mise en cohérence en lien aux éléments cités précédemment, pour pourrez modifié également dans le document CDA :
-
-* author/assignedAuthor/representedOrganization
-* author/assignedAuthor
-* authorfunctionCode@displayName
-* author/assignedAuthor/code
-
-Pour cela il vous faudra :
-
-1. Décoder le document CDA
-Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4** 
-2. Apporter les modifications
-3. Re-encoder en base 64 le document CDA
-4. Remplacer le champ **OBX-5.4** par le nouveau document CDA
-
 ### Synthése des modifications à effectuer dans le message HL7v2
 
 | Segment  | Champs          | Description | Instruction |
@@ -103,13 +88,10 @@ Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4**
 | MSH  | MSH-10          |   Identifiant du message  | |
 | TXA  | TXA-12          |   Identifiant du document  | |
 | TXA  | TXA-13          |   Identifiant du document à remplacer | Dans le cas d'un remplacement |
-| PRT | PRT-5.1          | Identifiant du professionnel qui fait la demande de traitement sur le(s) document(s)   | contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp) |
-| PRT | PRT-5.2          | Nom d’exercice du professionnel expéditeur   | contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp) |
-| PRT | PRT-5.3          | Prénom d’exercice du professionnel expéditeur   | contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp) |
-| PRT  | PRT-8.1         |   Nom de l’organisation   | contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp) |
-| PRT  | PRT-8.7         |   Type d’identifiant de l’organisation   | contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp) |
-| PRT  | PRT-8.10        |  Identifiant de l’organisation à l’origine de la demande de traitement sur le(s) document(s)   |  contexte : voir [Integration avec l'environnement de test du DMP](https://github.com/ansforge/hl7V2-exemples/tree/main/Vague%202/Trans_Doc-CDA-HL7V2/TRANSMISSION_DOCS_CDA_EN_HL7V2_V2.1/MDM#integration-avec-lenvironnement-de-test-du-dmp)  |
-| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | |
+| PRT  | PRT-8.7         |   Type d’identifiant de l’organisation   | pour PRT-4 = ‘SB^Send by^participation’ |
+| PRT  | PRT-8.10        |  Identifiant de l’organisation à l’origine de la demande de traitement sur le(s) document(s)   |  pour PRT-4 = ‘SB^Send by^participation’ |
+| PRT  | PRT-15.4        |  adresse email de destination   |  pour PRT-4 = ‘RCT^participation’ |
+| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | modifié Id du document principal et/ou du document remplacé et le champ author/assignedAuthor/representedOrganization/id |
 
 
 
