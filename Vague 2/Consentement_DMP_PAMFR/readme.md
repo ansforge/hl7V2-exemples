@@ -1,4 +1,6 @@
-# Exemples de messages PAM-FR (version 2.11.1) précisant les informations de consentement au  DMP
+# Messages PAM-FR (version 2.11.1)
+
+##  Exemples précisant les informations de consentement au  DMP
 
 Ce répertoire contient des exemples de messages HL7v2 conformes à l'extension française PAM-Fr (2.11.1) : 
 - ConsentementConsultation_NonOppositionAlimentation.er7
