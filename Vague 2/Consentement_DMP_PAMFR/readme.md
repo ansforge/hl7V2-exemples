@@ -1,11 +1,30 @@
-# Exemples de messages PAM-FR précisant l'opposition ou la non opposition du patient à l'alimentation et à la consultation du patient à son DMP
+# Exemples de messages PAM-FR (version 2.11.1) précisant les informations de consentement au  DMP
 
-Ce répertoire contient des exemples de messages HL7v2 conformes à l'extension française PAM-Fr, précisant l'opposition ou la non opposition du patient à l'alimentation et à la consultation du patient à son DMP : 
-- Consentement_Negatif
-- Consentement_Non_Receuilli
-- Consentement_Positif_DMP
+Ce répertoire contient des exemples de messages HL7v2 conformes à l'extension française PAM-Fr (2.11.1) : 
+- ConsentementConsultation_NonOppositionAlimentation.er7
+   - Consentement à la consultation du DMP et non opposition à l'alimentation du DMP
+- NonConsentementConsultation_NonOppositionAlimentation.er7
+  - Refus de consentement  à la consultation de son DMP et de non opposition à l'alimentation du DMP 
+- NonConsentementConsultation_OppositionAlimentation.er7
+  - Refus de consentement  à la consultation de son DMP et d'opposition à l'alimentation du DMP  
+- NonInformeConsentementConsultation_NonInformeOppositionAlimentation.er7
+  -   Information non recueillie pour la consultation et l'alimentation du DMP 
+- NonInformeConsentementConsultation_NonOppositionAlimentation.er7
+  -  Information non recueillie pour la consulation  du DMP et non opposition à l'alimentation du DMP
+   
 
-### Fiche Mémo: Synthèse des droits et règles d’accès à Mon espace santé 
+## Information
 
-le lecteur pourra se reporter à la  fiche Mémo – Synthèse des droits et règles d’accès à Mon espace santé – DMP (PDF) de la CNAM : 
- - https://www.ameli.fr/sites/default/files/Documents/M%C3%A9mo_Synth%C3%A8se%20des%20droits%20et%20r%C3%A8gles%20d%27acc%C3%A8s%20%C3%A0%20Monespacesant%C3%A9_DMP.pdf
+### Alimenation du DMP
+
+Les articles L1111-15 et R1111-47 du CSP prévoient que pour l'alimentation de Mon espace
+santé/DMP, le patient doit être informé que les membres de son équipe de soins vont
+alimenter son espace santé et qu’il peut à tout moment s'opposer à l'alimentation s'il invoque
+un motif légitime (le consentement explicite du patient n'est pas nécessaire).
+
+### Consultation du DMP
+
+Le consentement du patient à la consultation de Mon espace santé / DMP est présumé s'il fait
+partie de l'équipe de soins (articles L 1110- 4 et R1111-46 du CSP). Il doit être informé et
+peut s'opposer sans motif légitime. Le consentement explicite du patient doit être recueilli
+hors équipe de soins article L 1111- 17 III).
