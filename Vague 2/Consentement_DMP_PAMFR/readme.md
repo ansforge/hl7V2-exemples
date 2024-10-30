@@ -15,7 +15,7 @@ Ce répertoire contient des exemples de messages HL7v2 conformes à l'extension 
 
 ## Information
 
-### Alimenation du DMP
+### Alimentation  du DMP
 
 Les articles L1111-15 et R1111-47 du CSP prévoient que pour l'alimentation de Mon espace
 santé/DMP, le patient doit être informé que les membres de son équipe de soins vont
