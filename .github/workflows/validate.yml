@@ -12,4 +12,4 @@ jobs:
           path: source
       - uses: M-priour/cisis-action-validate-exemple@main
         with:      
-          repo_ig: "./source"   
+          repo: "./source"   
