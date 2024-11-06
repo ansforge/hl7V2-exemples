@@ -1,4 +1,4 @@
-# Exemples HL7 v2 
+# Exemples HL7 v2
 
 ## Description
 
