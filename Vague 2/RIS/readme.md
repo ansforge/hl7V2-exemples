@@ -17,8 +17,14 @@ Le patient utilisé dans les exemples est le patient "PAT-TROIS DOMINIQUE".
 Ce patient est connu du DMP de test. Il n'y a donc pas de modification à faire dans le document CDA encodé en base64 et le segment PID des messages.
 
 
-### structure de l'auteur du document CDA
-L'identifiant de structure de l'auteur du document CDA se retrouve  dans l'élement **author/assignedAuthor/representedOrganization/id** du document CDA.
+### structure de l'auteur et du reponsable  du document CDA
+Le médecin responsable de la structure d’imagerie qui accueille le patient et son organisation sont dans les éléments :
+- **author/assignedAuthor**
+- **author/assignedAuthor/representedOrganization**
+
+Le médecin responsable de la structure d’imagerie qui accueille le patient est dans l'élement : 
+- **legalAuthenticator**
+
 
 Exemple pour un document CDA : 
 ```XML
@@ -47,15 +53,11 @@ Exemple pour un document CDA :
 
 1. Décoder le document CDA
 Pour cela il faut récuperer le document CDA qui est dans le champ **OBX-5.4** 
-2. Générer un nouvelle identifiant de document
-4. Remplacer l'identifiant de la structure de l'auteur du document CDA
-5. Re-encoder en base 64 le document CDA
+2. Remplacer les éléments **author/assignedAuthor**, **author/assignedAuthor/representedOrganization**, **legalAuthenticator**
+3. Re-encoder en base 64 le document CDA
 
 
 
-#### Instruction
-
-Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le document CDA et la valeur du champ **TXA-13**
 
 ### Synthèse des modifications à effectuer dans le message HL7v2
 
@@ -67,7 +69,7 @@ Dans ce cas, il vous faudra modifier l'identifiant du document remplacé dans le
 | MSH  | MSH-6          |   Organisation réceptrice | |
 | MSH  | MSH-7          |    Date/time du message | |
 | MSH  | MSH-10          |   Identifiant du message  | |
-| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | modifié Id du document principal et/ou du document remplacé et le champ author/assignedAuthor/representedOrganization/id |
+| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | modification de **author/assignedAuthor**, **author/assignedAuthor/representedOrganization**, **legalAuthenticator**|
 
 
 
