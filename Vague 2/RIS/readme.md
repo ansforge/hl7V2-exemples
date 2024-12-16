@@ -5,8 +5,8 @@ Vous trouverez sur cette page des exemples de document CDA  dans le contexte du 
 | Repertoire  | Description          |
 | :--------------- |:---------------|
 | **Transmission initiale**  |   Contient un CR d'imagerie au format CDA      | 
-|  **Remplacement ** |   Contient une nouvelle version du CR d'imagerie au format CDA     | 
-|  **Suppression ** |  Contient la version du CR d'imagerie à supprimer  | 
+|  **Remplacement** |   Contient une nouvelle version du CR d'imagerie au format CDA     | 
+|  **Suppression** |  Contient la version du CR d'imagerie à supprimer  | 
 
  
 ## Integration avec l'environnement de test du DMP
