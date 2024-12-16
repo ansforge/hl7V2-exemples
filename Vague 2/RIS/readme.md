@@ -4,9 +4,9 @@
 Vous trouverez sur cette page des exemples de document CDA  dans le contexte du volet "Transmission de document(s) CDA en HL7v2, vague2".
 | Repertoire  | Description          |
 | :--------------- |:---------------|
-| **Transmission initiale **  |   Contient un exemple de message HL7v2 MDM qui contient un CR d'imagerie médicale au format CDA N1 transmis au GESTIONNAIRE pour la première fois.      | 
-|  **Remplacement MDM** |   Contient un exemple de message HL7v2 MDM qui contient une nouvelle version du document CDA N1 précédemment transmis. le champ OBX-11 du segment OBX portant la nouvelle version de document prend la valeur C indiquant ainsi une demande de remplacement du document initial. le lien avec la version précédente du document est indiqué par l'élément relatedDocument au niveau du CDA.     | 
-|  **Suppression MDM** |  Contient un exemple de message HL7v2 MDM qui contient la dernière version d'un document à supprimer. le champ OBX-11 du segment OBX portant le document prend la valeur D pour indiquer une demande de suppression.  | 
+| **Transmission initiale**  |   Contient un CR d'imagerie au format CDA      | 
+|  **Remplacement ** |   Contient une nouvelle version du CR d'imagerie au format CDA     | 
+|  **Suppression ** |  Contient la version du CR d'imagerie à supprimer  | 
 
  
 ## Integration avec l'environnement de test du DMP
