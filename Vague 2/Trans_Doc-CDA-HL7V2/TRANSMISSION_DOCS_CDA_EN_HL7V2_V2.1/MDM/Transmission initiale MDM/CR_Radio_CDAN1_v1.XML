@@ -7,7 +7,7 @@
   <id root="1.2.250.1.71.4.2.2.120456789.71024000081"></id>
   <code code="18748-4" codeSystem="2.16.840.1.113883.6.1" displayName="CR d'imagerie médicale"></code>
   <title>Radio de hanche</title>
-  <effectiveTime value="20050411103328"></effectiveTime>
+  <effectiveTime value="20050411103328+0100"></effectiveTime>
   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" displayName="Normal"></confidentialityCode>
   <languageCode code="fr-FR"></languageCode>
   <versionNumber value="1"/>
