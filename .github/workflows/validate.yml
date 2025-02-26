@@ -12,4 +12,4 @@ jobs:
           path: source
       - uses: ansforge/ci-sis-action-validate@main
         with:      
-          repo: "./sourceh/l7V2-exemples/Vague 2"   
+          repo: "./source/hl7V2-exemples/Vague 2"   
