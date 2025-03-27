@@ -37,11 +37,11 @@
   <!-- Déclarations de conformité au modèle CR-BIO_2023.01 du CI-SIS -->
   <templateId root="1.2.250.1.213.1.1.1.55" extension="2023.01"/>
   <!-- Identifiant du document -->
-  <id root="1.2.250.1.213.1.1.13"/>
+  <id root="1.2.250.1.71.4.2.2.20250327095231.570312"/>
   <!-- Type de document -->
   <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
-  <title>Compte rendu d'examens biologiques</title>
+  <title>CR d'examens biologiques</title>
   <!-- Date et heure de création du document -->
   <effectiveTime value="20210104160527+0100" />
   <!-- Niveau de confidentialité du document -->
@@ -78,7 +78,6 @@
           <given qualifier="BR">DOMINIQUE</given>
           <given>DOMINIQUE</given>
           <family qualifier="BR">PAT-TROIS</family>
-          <family qualifier="SP">PAT-TROIS</family>
           <family qualifier="CL">PAT-TROIS</family>
         </name>
         <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
@@ -105,8 +104,8 @@
         <birthplace>
           <place>
             <addr>
-              <county>63220</county>
-              <city>MAZOIRES</city>
+              <county>51215</county>
+              <city>DOMPREMY</city>
             </addr>
           </place>
         </birthplace>
@@ -387,8 +386,8 @@
       <associatedPerson>
         <name>
           <prefix>MME</prefix>
-          <given>Roberte</given>
-          <family>BLEDER</family>
+          <given>Roberta</given>
+          <family>BLEEDER</family>
         </name>
       </associatedPerson>
       <scopingOrganization>
@@ -487,13 +486,8 @@
       <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
     </serviceEvent>
   </documentationOf>
+  <relatedDocument typeCode="RPLC"><parentDocument><id root="1.2.250.1.213.1.1.12"/></parentDocument></relatedDocument>
   <!-- Contexte de la prise en charge -->
-  <!-- document remplacé-->
-  <relatedDocument typeCode="RPLC">
-    <parentDocument>
-      <id root="1.2.250.1.213.1.1.12"/>
-    </parentDocument>
-  </relatedDocument>
   <componentOf>
     <encompassingEncounter>
       <id root="1.2.250.1.71.4.2.1" extension="801234534765" />
@@ -631,7 +625,7 @@
                       <td>
                         <content ID="Proteines">Protéines totales (g/L)</content>
                       </td>
-                      <td>80,0</td>
+                      <td>80.0</td>
                       <td>63,00 - 83,00</td>
                     </tr>
                     <tr>
