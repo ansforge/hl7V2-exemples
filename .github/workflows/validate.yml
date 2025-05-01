@@ -13,3 +13,4 @@ jobs:
       - uses: ansforge/ci-sis-action-validate@main
         with:      
           repo: "./source"   
+          apiKey: ${{ secrets.apikey }}
