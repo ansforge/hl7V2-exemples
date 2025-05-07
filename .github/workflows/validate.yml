@@ -12,5 +12,5 @@ jobs:
           path: source
       - uses: ansforge/ci-sis-action-validate@main
         with:      
-          repo: "./source/Vague 2/Consentement_DMP_PAMFR"   
+          repo: "./source"   
           apiKey: ${{ secrets.apikey }}
