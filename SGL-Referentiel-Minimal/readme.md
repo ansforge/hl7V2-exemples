@@ -22,11 +22,8 @@ Par contre d'autres segments sont à modifier en fonction de votre configuration
 ### Template Admission (ADT^01)
 Le template [admission.er7](admission.er7) est à utilisé pour l'exigence "SC.DMP/ALI/PROG.10 : 
 - Consentement d'alimentation au DMP
-- Modfification de l'UF
-- Modification du séjour
+
  
 # Template sortie (ADT^03)
 Le template [sortie.er7](sortie.er7) est à utilisé pour l'exigence  SC.DMP/ALI/PROG.11 : 
-- Consentement d'alimentation au DMP
-- Modfification de l'UF
-- Modification du séjour
+
