@@ -16,7 +16,7 @@ Par contre d'autres segments sont à modifier en fonction de votre configuration
 | MSH  | MSH-6          |   Organisation réceptrice | |
 | MSH  | MSH-7          |    Date/time du message | |
 | MSH  | MSH-10          |   Identifiant du message  | |
-| OBX  | OBX-5.4         |  Document CDA encodé en base 64    | 
+| EVN  | EVN-2         |  Date et heure d'enregistrement    | 
 
 
 ### Template Admission (ADT^01)
