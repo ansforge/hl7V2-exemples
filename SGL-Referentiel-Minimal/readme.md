@@ -1,7 +1,7 @@
 # Messages PAM-Fr dans le cadre du SGL
 Vous trouverez sur cette page les templates de message PAM dans le cadre du référentiel SGL.
 
-Ces templates sont à utiliser tels quels en adaptant uniquement les éléments listés ci-dessous. **Ne pas modifier le segment PID ni les informations de consentement (ZFA)** — ils contiennent le patient de test "PAT-TROIS DOMINIQUE" et des valeurs de référence.
+Ces templates sont à utiliser tels quels en adaptant uniquement les éléments listés ci-dessous. **Ne pas modifier le segment PID. Pour le template d’admission uniquement, ne pas modifier le segment ZFA, qui porte les valeurs de référence liées au statut DMP / consentement. Le template de sortie ne comporte pas de segment ZFA** — ils contiennent le patient de test "PAT-TROIS DOMINIQUE" et des valeurs de référence.
 
 ## Éléments à modifier
 
