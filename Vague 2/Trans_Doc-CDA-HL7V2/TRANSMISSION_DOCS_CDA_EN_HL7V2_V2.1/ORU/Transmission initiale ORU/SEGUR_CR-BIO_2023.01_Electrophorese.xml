@@ -41,7 +41,7 @@
   <!-- Type de document -->
   <code code="11502-2" displayName="CR d'examens biologiques" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
   <!-- Titre du document -->
-  <title>Compte rendu d'examens biologiques</title>
+  <title>CR d'examens biologiques</title>
   <!-- Date et heure de création du document -->
   <effectiveTime value="20210104160527+0100" />
   <!-- Niveau de confidentialité du document -->
@@ -55,7 +55,7 @@
   <!-- Patient -->
   <recordTarget>
     <patientRole>
-      <!-- INS-NIR de test : 1.2.250.1.213.1.4.10 -->
+      <!-- INS-NIR de test : 1.2.250.1.213.1.4.8 -->
       <id extension="279035121518989" root="1.2.250.1.213.1.4.10"/>
       <!-- IPP du patient dans l'établissement avec root = l'OID de l'ES -->
       <id extension="1234567890121" root="1.2.3.4.567.8.9.10" />
@@ -78,7 +78,6 @@
           <given qualifier="BR">DOMINIQUE</given>
           <given>DOMINIQUE</given>
           <family qualifier="BR">PAT-TROIS</family>
-          <family qualifier="SP">PAT-TROIS</family>
           <family qualifier="CL">PAT-TROIS</family>
         </name>
         <administrativeGenderCode code="F" displayName="Féminin" codeSystem="2.16.840.1.113883.5.1" />
@@ -105,8 +104,8 @@
         <birthplace>
           <place>
             <addr>
-              <county>63220</county>
-              <city>MAZOIRES</city>
+              <county>51215</county>
+              <city>DOMPREMY</city>
             </addr>
           </place>
         </birthplace>
@@ -487,6 +486,7 @@
       <code code="18725-2" displayName="Microbiologie" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
     </serviceEvent>
   </documentationOf>
+  
   <!-- Contexte de la prise en charge -->
   <componentOf>
     <encompassingEncounter>
@@ -625,7 +625,7 @@
                       <td>
                         <content ID="Proteines">Protéines totales (g/L)</content>
                       </td>
-                      <td>75,0</td>
+                      <td>75.0</td>
                       <td>63,00 - 83,00</td>
                     </tr>
                     <tr>
